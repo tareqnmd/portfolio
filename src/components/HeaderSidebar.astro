@@ -5,12 +5,12 @@ import { Routes } from "../lib";
 <button id="open-sidebar" aria-label="Open sidebar" class="lg:hidden">
     open
 </button>
-<aside id="sidebar" class="hidden fixed top-0 left-0 min-h-screen w-full bg-background z-50 lg:hidden">
-    <button id="close-sidebar" aria-label="Close sidebar" class="absolute top-4 right-4">
+<aside id="sidebar" class="fixed top-0 -right-[12rem] min-h-screen w-full bg-background z-50 lg:hidden transition-all max-w-[12rem] flex flex-col p-4 gap-4 border-l border-border">
+    <button id="close-sidebar" class="ml-auto" aria-label="Close sidebar">
         close
     </button>
-    <nav class="h-full flex items-center justify-center">
-        <ul class="flex flex-col items-center gap-4">
+    <nav>
+        <ul class="flex flex-col gap-4">
             <li>
                 <a href={Routes.HOME}>Home</a>
             </li>
@@ -36,12 +36,12 @@ import { Routes } from "../lib";
     const sidebar = document.getElementById('sidebar');
 
     openSidebarBtn?.addEventListener('click', () => {
-        sidebar?.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
+        sidebar?.classList.remove('-right-[12rem]');
+        sidebar?.classList.add('right-0');
     });
 
     closeSidebarBtn?.addEventListener('click', () => {
-        sidebar?.classList.add('hidden');
-        document.body.style.overflow = 'auto';
+        sidebar?.classList.remove('right-0');
+        sidebar?.classList.add('-right-[12rem]');
     });
 </script>

@@ -10,6 +10,14 @@
 	--foreground: #ffffff;
 	--primary: #096b68;
 	--font-family: 'Poppins', sans-serif;
+	--border-color: #a8b3cf;
+}
+
+@theme {
+	--color-background: #020817;
+	--color-foreground: #ffffff;
+	--color-primary: #096b68;
+	--color-border: #a8b3cf;
 }
 
 body {
