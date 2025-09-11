@@ -1,13 +1,15 @@
 ---
 import { Routes } from "../lib";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { IoClose } from "react-icons/io5";
 ---
 
 <button id="open-sidebar" aria-label="Open sidebar" class="lg:hidden">
-    open
+    <RxHamburgerMenu size={24} />
 </button>
 <aside id="sidebar" class="fixed top-0 -right-[12rem] min-h-screen w-full bg-background z-50 lg:hidden transition-all max-w-[12rem] flex flex-col p-4 gap-4 border-l border-border">
     <button id="close-sidebar" class="ml-auto" aria-label="Close sidebar">
-        close
+        <IoClose size={24} />
     </button>
     <nav>
         <ul class="flex flex-col gap-4">
