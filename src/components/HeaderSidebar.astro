@@ -1,0 +1,47 @@
+---
+import { Routes } from "../lib";
+---
+
+<button id="open-sidebar" aria-label="Open sidebar" class="lg:hidden">
+    open
+</button>
+<aside id="sidebar" class="hidden fixed top-0 left-0 min-h-screen w-full bg-background z-50 lg:hidden">
+    <button id="close-sidebar" aria-label="Close sidebar" class="absolute top-4 right-4">
+        close
+    </button>
+    <nav class="h-full flex items-center justify-center">
+        <ul class="flex flex-col items-center gap-4">
+            <li>
+                <a href={Routes.HOME}>Home</a>
+            </li>
+            <li>
+                <a href={Routes.ABOUT}>About</a>
+            </li>
+            <li>
+                <a href={Routes.BLOGS}>Blogs</a>
+            </li>
+            <li>
+                <a href={Routes.PROJECTS}>Projects</a>
+            </li>
+            <li>
+                <a href={Routes.CONTACT}>Contact</a>
+            </li>
+        </ul>
+    </nav>
+</aside>
+
+<script>
+    const openSidebarBtn = document.getElementById('open-sidebar');
+    const closeSidebarBtn = document.getElementById('close-sidebar');
+    const sidebar = document.getElementById('sidebar');
+
+    openSidebarBtn?.addEventListener('click', () => {
+        sidebar?.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    });
+
+    closeSidebarBtn?.addEventListener('click', () => {
+        sidebar?.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    });
+</script>
