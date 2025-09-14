@@ -42,8 +42,22 @@ import { IoClose } from "react-icons/io5";
         sidebar?.classList.add('right-0');
     });
 
-    closeSidebarBtn?.addEventListener('click', () => {
+    closeSidebarBtn?.addEventListener('click', closeSidebar);
+
+    function closeSidebar() {
         sidebar?.classList.remove('right-0');
         sidebar?.classList.add('-right-[12rem]');
-    });
+    }
+
+    document.addEventListener('click', (e) => {
+        if (!sidebar || !openSidebarBtn) return;
+
+        const isSidebarOpen = sidebar.classList.contains('right-0');
+        if (!isSidebarOpen) return;
+        
+        const path = e.composedPath();
+        if(!path.includes(sidebar) && !path.includes(openSidebarBtn)) {
+            closeSidebar();
+        }
+    })
 </script>
