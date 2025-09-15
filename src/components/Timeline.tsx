@@ -26,7 +26,6 @@ const TimelineItem = ({
 			className
 		)}
 	>
-		<div className="order-1 w-5/12"></div>
 		<div className="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
 			{icon ? (
 				<div className="mx-auto font-semibold text-lg text-white">{icon}</div>
@@ -36,7 +35,6 @@ const TimelineItem = ({
 				</div>
 			)}
 		</div>
-
 		<div className="order-1 bg-gray-400 rounded-lg shadow-xl w-5/12 px-6 py-4">
 			{children}
 		</div>
