@@ -1,41 +1,69 @@
 ---
 import Logo from '../assets/logo.svg';
-import { Routes } from '../lib';
+import { cn, Routes } from '../lib';
 import HeaderSidebar from './HeaderSidebar.astro';
+const isActive = (path: string) => typeof window !== 'undefined' && path === window.location.pathname;
 ---
 
-<header class="app-header container flex justify-between items-center py-4">
+<header
+	class="app-header container flex justify-between items-center py-4"
+	role="banner"
+>
 	<a
-		class="app-logo"
+		class="app-logo inline-flex items-center hover:opacity-80 transition-opacity"
 		href={Routes.HOME}
+		aria-label="Home"
 	>
 		<Logo fill="currentColor" />
 	</a>
-	<nav class="app-nav hidden lg:block">
-		<ul class="app-nav-list flex items-center gap-4">
+	<nav
+		class="app-nav hidden lg:block"
+		aria-label="Main navigation"
+	>
+		<ul class="app-nav-list flex items-center gap-6">
 			<li>
 				<a
-					class="app-nav-link"
+					class={cn(
+						'app-nav-link hover:text-primary transition-colors',
+						isActive(Routes.ABOUT) && 'text-primary'
+					)}
 					href={Routes.ABOUT}
+					aria-label="About me page"
 					>About me</a
 				>
 			</li>
 			<li>
 				<a
-					class="app-nav-link"
+					class={cn(
+						'app-nav-link hover:text-primary transition-colors',
+						isActive(Routes.BLOGS) && 'text-primary'
+					)}
 					href={Routes.BLOGS}
+					aria-label="Blogs page"
 					>Blogs</a
 				>
 			</li>
 			<li>
 				<a
-					class="app-nav-link"
+					class={cn(
+						'app-nav-link hover:text-primary transition-colors',
+						isActive(Routes.PROJECTS) && 'text-primary'
+					)}
 					href={Routes.PROJECTS}
+					aria-label="Projects page"
 					>Projects</a
 				>
 			</li>
 			<li>
-				<a href={Routes.CONTACT}>Contact</a>
+				<a
+					class={cn(
+						'app-nav-link hover:text-primary transition-colors',
+						isActive(Routes.CONTACT) && 'text-primary'
+					)}
+					href={Routes.CONTACT}
+					aria-label="Contact page"
+					>Contact</a
+				>
 			</li>
 		</ul>
 	</nav>
