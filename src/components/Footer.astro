@@ -1,6 +1,9 @@
 ---
+import { APP_NAME } from '../lib';
+const year = new Date().getFullYear();
+const copyright = `© Copyright ${APP_NAME} ${year}`;
 ---
 
-<footer class="container text-center py-4">
-	<p>@copyright 2025</p>
+<footer class="app-footer container py-4">
+	<p class="footer-text text-center">{copyright}</p>
 </footer>

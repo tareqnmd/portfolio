@@ -4,20 +4,35 @@ import { Routes } from '../lib';
 import HeaderSidebar from './HeaderSidebar.astro';
 ---
 
-<header class="container flex justify-between items-center py-4">
-	<a href={Routes.HOME}>
-		<Logo fill="currentColor"/>
+<header class="app-header container flex justify-between items-center py-4">
+	<a
+		class="app-logo"
+		href={Routes.HOME}
+	>
+		<Logo fill="currentColor" />
 	</a>
-	<nav class="hidden lg:block">
-		<ul class="flex items-center gap-4">
+	<nav class="app-nav hidden lg:block">
+		<ul class="app-nav-list flex items-center gap-4">
 			<li>
-				<a href={Routes.ABOUT}>About me</a>
+				<a
+					class="app-nav-link"
+					href={Routes.ABOUT}
+					>About me</a
+				>
 			</li>
 			<li>
-				<a href={Routes.BLOGS}>Blogs</a>
+				<a
+					class="app-nav-link"
+					href={Routes.BLOGS}
+					>Blogs</a
+				>
 			</li>
 			<li>
-				<a href={Routes.PROJECTS}>Projects</a>
+				<a
+					class="app-nav-link"
+					href={Routes.PROJECTS}
+					>Projects</a
+				>
 			</li>
 			<li>
 				<a href={Routes.CONTACT}>Contact</a>
@@ -26,4 +41,3 @@ import HeaderSidebar from './HeaderSidebar.astro';
 	</nav>
 	<HeaderSidebar />
 </header>
-
