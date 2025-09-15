@@ -4,6 +4,15 @@ const year = new Date().getFullYear();
 const copyright = `© Copyright ${APP_NAME} ${year}`;
 ---
 
-<footer class="app-footer container py-4">
-	<p class="footer-text text-center">{copyright}</p>
+<footer
+	role="contentinfo"
+	aria-label="Footer"
+	class="footer container py-4"
+>
+	<p
+		aria-label="Copyright"
+		class="footer-text text-center"
+	>
+		{copyright}
+	</p>
 </footer>

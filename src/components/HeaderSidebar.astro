@@ -1,63 +1,94 @@
 ---
-import { Routes } from "../lib";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { IoClose } from "react-icons/io5";
+import { Routes } from '../lib';
+import { RxHamburgerMenu } from 'react-icons/rx';
+import { IoClose } from 'react-icons/io5';
 ---
 
-<button id="open-sidebar" aria-label="Open sidebar" class="lg:hidden">
-    <RxHamburgerMenu size={24} />
+<button
+	id="open-sidebar"
+	aria-label="Open sidebar"
+	class="lg:hidden"
+>
+	<RxHamburgerMenu size={24} />
 </button>
-<aside id="sidebar" class="fixed top-0 -right-[12rem] min-h-screen w-full bg-background z-50 lg:hidden transition-all max-w-[12rem] flex flex-col p-4 gap-4 border-l border-border">
-    <button id="close-sidebar" class="ml-auto" aria-label="Close sidebar">
-        <IoClose size={24} />
-    </button>
-    <nav>
-        <ul class="flex flex-col gap-2">
-            <li class="border-b border-border py-2">
-                <a href={Routes.HOME}>Home</a>
-            </li>
-            <li class="border-b border-border py-2">
-                <a href={Routes.ABOUT}>About</a>
-            </li>
-            <li class="border-b border-border py-2">
-                <a href={Routes.BLOGS}>Blogs</a>
-            </li>
-            <li class="border-b border-border py-2">
-                <a href={Routes.PROJECTS}>Projects</a>
-            </li>
-            <li class="border-b border-border py-2">
-                <a href={Routes.CONTACT}>Contact</a>
-            </li>
-        </ul>
-    </nav>
+<aside
+	id="sidebar"
+	class="fixed top-0 -right-[12rem] min-h-screen w-full bg-background z-50 lg:hidden transition-all max-w-[12rem] flex flex-col p-4 gap-4 border-l border-border"
+>
+	<button
+		id="close-sidebar"
+		class="ml-auto"
+		aria-label="Close sidebar"
+	>
+		<IoClose size={24} />
+	</button>
+	<nav aria-label="Sidebar navigation">
+		<ul class="sidebar-list flex flex-col gap-2">
+			<li class="sidebar-item border-b border-border py-2">
+				<a
+					href={Routes.HOME}
+					aria-label="Home page"
+					>Home</a
+				>
+			</li>
+			<li class="sidebar-item border-b border-border py-2">
+				<a
+					href={Routes.ABOUT}
+					aria-label="About page"
+					>About</a
+				>
+			</li>
+			<li class="sidebar-item border-b border-border py-2">
+				<a
+					href={Routes.BLOGS}
+					aria-label="Blogs page"
+					>Blogs</a
+				>
+			</li>
+			<li class="sidebar-item border-b border-border py-2">
+				<a
+					href={Routes.PROJECTS}
+					aria-label="Projects page"
+					>Projects</a
+				>
+			</li>
+			<li class="sidebar-item border-b border-border py-2">
+				<a
+					href={Routes.CONTACT}
+					aria-label="Contact page"
+					>Contact</a
+				>
+			</li>
+		</ul>
+	</nav>
 </aside>
 
 <script>
-    const openSidebarBtn = document.getElementById('open-sidebar');
-    const closeSidebarBtn = document.getElementById('close-sidebar');
-    const sidebar = document.getElementById('sidebar');
+	const openSidebarBtn = document.getElementById('open-sidebar');
+	const closeSidebarBtn = document.getElementById('close-sidebar');
+	const sidebar = document.getElementById('sidebar');
 
-    openSidebarBtn?.addEventListener('click', () => {
-        sidebar?.classList.remove('-right-[12rem]');
-        sidebar?.classList.add('right-0');
-    });
+	openSidebarBtn?.addEventListener('click', () => {
+		sidebar?.classList.remove('-right-[12rem]');
+		sidebar?.classList.add('right-0');
+	});
 
-    closeSidebarBtn?.addEventListener('click', closeSidebar);
+	closeSidebarBtn?.addEventListener('click', closeSidebar);
 
-    function closeSidebar() {
-        sidebar?.classList.remove('right-0');
-        sidebar?.classList.add('-right-[12rem]');
-    }
+	function closeSidebar() {
+		sidebar?.classList.remove('right-0');
+		sidebar?.classList.add('-right-[12rem]');
+	}
 
-    document.addEventListener('click', (e) => {
-        if (!sidebar || !openSidebarBtn) return;
+	document.addEventListener('click', (e) => {
+		if (!sidebar || !openSidebarBtn) return;
 
-        const isSidebarOpen = sidebar.classList.contains('right-0');
-        if (!isSidebarOpen) return;
-        
-        const path = e.composedPath();
-        if(!path.includes(sidebar) && !path.includes(openSidebarBtn)) {
-            closeSidebar();
-        }
-    })
+		const isSidebarOpen = sidebar.classList.contains('right-0');
+		if (!isSidebarOpen) return;
+
+		const path = e.composedPath();
+		if (!path.includes(sidebar) && !path.includes(openSidebarBtn)) {
+			closeSidebar();
+		}
+	});
 </script>

@@ -1,9 +1,13 @@
 ---
-import AboutMe from "./AboutMe.astro";
-import MyExperiences from "./MyExperiences";
+import AboutMe from './AboutMe.astro';
+import MyExperiences from './MyExperiences.astro';
 ---
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div
+	role="region"
+	aria-label="About"
+	class="about grid grid-cols-1 md:grid-cols-2 gap-4"
+>
 	<AboutMe />
 	<MyExperiences />
 </div>
