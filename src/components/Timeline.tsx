@@ -11,6 +11,7 @@ export interface TimelineItemProps {
 
 export interface TimelineProps {
 	children: React.ReactElement<TimelineItemProps>[];
+	className?: string;
 }
 
 const TimelineItem = ({
@@ -19,39 +20,50 @@ const TimelineItem = ({
 	icon,
 	className,
 }: TimelineItemProps) => (
-	<div
+	<article
 		className={cn(
-			'mb-8 flex justify-between items-center w-full',
-			isLeft ? 'flex-row-reverse left-timeline' : 'right-timeline',
+			'timeline-item mb-8 flex w-full items-center justify-between',
+			isLeft ? 'flex-row-reverse timeline-item-left' : 'timeline-item-right',
 			className
 		)}
+		aria-label={`Timeline entry ${isLeft ? 'left' : 'right'} side`}
 	>
-		<div className="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+		<div
+			className="timeline-marker z-10 flex h-8 w-8 items-center justify-center rounded-full bg-slate-800 shadow-md"
+			aria-hidden="true"
+		>
 			{icon ? (
-				<div className="mx-auto font-semibold text-lg text-white">{icon}</div>
+				<span className="timeline-icon text-lg font-medium text-white">
+					{icon}
+				</span>
 			) : (
-				<div className="mx-auto">
-					<div className="w-4 h-4 bg-white rounded-full"></div>
-				</div>
+				<span className="timeline-dot flex h-4 w-4 rounded-full bg-white"></span>
 			)}
 		</div>
-		<div className="order-1 bg-gray-400 rounded-lg shadow-xl w-5/12 px-6 py-4">
+		<div
+			className="timeline-content w-5/12 rounded-lg bg-white p-4 shadow-md dark:bg-slate-700"
+			role="region"
+		>
 			{children}
 		</div>
-	</div>
+	</article>
 );
 
-const Timeline = ({ children }: TimelineProps) => {
+const Timeline = ({ children, className }: TimelineProps) => {
 	return (
-		<div className="container mx-auto px-4 py-8">
-			<div className="relative wrap overflow-hidden p-10 h-full">
+		<section
+			className={cn('timeline-container mx-auto px-4 py-8', className)}
+			aria-label="Timeline"
+		>
+			<div className="timeline-wrapper relative h-full overflow-hidden p-6">
 				<div
-					className="border-2-2 absolute border-opacity-20 border-gray-700 h-full border"
+					className="timeline-divider absolute h-full border border-slate-300 dark:border-slate-600"
 					style={{ left: '50%' }}
+					aria-hidden="true"
 				></div>
 				{children}
 			</div>
-		</div>
+		</section>
 	);
 };
 

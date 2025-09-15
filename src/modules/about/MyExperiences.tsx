@@ -27,25 +27,36 @@ const experiences = [
 
 const MyExperiences = () => {
 	return (
-		<div className="container mx-auto px-4 py-8">
-			<h2 className="text-3xl font-bold text-center mb-8">My Experiences</h2>
-			<Timeline>
+		<section className="experience-section py-12">
+			<h2 className="section-title mb-8 text-center text-3xl font-bold">
+				My Experiences
+			</h2>
+			<Timeline className="experience-timeline">
 				{experiences.map((exp, index) => (
 					<TimelineItem
 						key={index}
 						isLeft={index % 2 === 0}
 						icon={exp.icon}
+						className="experience-item"
 					>
-						<div>
-							<h3 className="text-lg font-bold">{exp.title}</h3>
-							<p className="text-sm text-gray-500">{exp.subtitle}</p>
-							<p className="text-sm text-gray-500">{exp.date}</p>
-							<p className="text-sm mt-2">{exp.description}</p>
+						<div className="experience-content">
+							<h3 className="experience-title text-lg font-bold">
+								{exp.title}
+							</h3>
+							<p className="experience-company text-sm text-slate-500 dark:text-slate-300">
+								{exp.subtitle}
+							</p>
+							<p className="experience-period text-sm text-slate-500 dark:text-slate-300">
+								{exp.date}
+							</p>
+							<p className="experience-description mt-2 text-sm">
+								{exp.description}
+							</p>
 						</div>
 					</TimelineItem>
 				))}
 			</Timeline>
-		</div>
+		</section>
 	);
 };
 
