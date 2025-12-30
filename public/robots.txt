@@ -1,0 +1,11 @@
+# Robots.txt for tareqnmd.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://tareqnmd.com/sitemap.xml
+
+# Block crawling of asset directories (optional optimization)
+Disallow: /meta/
+
