@@ -6,6 +6,7 @@ import HeaderSidebar from './HeaderSidebar.astro';
 <header
 	class="header"
 	role="banner"
+	transition:persist
 >
 	<div class="container mx-auto px-4 flex justify-between items-center h-[72px]">
 		<a
@@ -39,44 +40,54 @@ import HeaderSidebar from './HeaderSidebar.astro';
 </header>
 
 <script>
-	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-		anchor.addEventListener('click', function(e) {
-			e.preventDefault();
-			const href = this.getAttribute('href');
-			if (!href) return;
-			
-			const target = document.querySelector(href);
-			if (target) {
-				const headerHeight = 72;
-				const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+	function initHeader() {
+		// Smooth scroll for anchor links
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function(e) {
+				e.preventDefault();
+				const href = this.getAttribute('href');
+				if (!href) return;
 				
-				window.scrollTo({
-					top: targetPosition,
-					behavior: 'smooth'
-				});
-			}
+				const target = document.querySelector(href);
+				if (target) {
+					const headerHeight = 72;
+					const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+					
+					window.scrollTo({
+						top: targetPosition,
+						behavior: 'smooth'
+					});
+				}
+			});
 		});
-	});
 
-	const sections = document.querySelectorAll('section[id]');
-	const navLinks = document.querySelectorAll('.nav-link[data-section]');
+		// Active nav link highlighting
+		const sections = document.querySelectorAll('section[id]');
+		const navLinks = document.querySelectorAll('.nav-link[data-section]');
 
-	const observer = new IntersectionObserver((entries) => {
-		entries.forEach(entry => {
-			if (entry.isIntersecting) {
-				const sectionId = entry.target.getAttribute('id');
-				navLinks.forEach(link => {
-					link.classList.remove('active');
-					if (link.getAttribute('data-section') === sectionId) {
-						link.classList.add('active');
-					}
-				});
-			}
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					const sectionId = entry.target.getAttribute('id');
+					navLinks.forEach(link => {
+						link.classList.remove('active');
+						if (link.getAttribute('data-section') === sectionId) {
+							link.classList.add('active');
+						}
+					});
+				}
+			});
+		}, {
+			rootMargin: '-20% 0px -80% 0px',
+			threshold: 0
 		});
-	}, {
-		rootMargin: '-20% 0px -80% 0px',
-		threshold: 0
-	});
 
-	sections.forEach(section => observer.observe(section));
+		sections.forEach(section => observer.observe(section));
+	}
+
+	// Run on initial load
+	initHeader();
+
+	// Re-run after View Transitions navigation
+	document.addEventListener('astro:after-swap', initHeader);
 </script>

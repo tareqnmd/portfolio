@@ -14,6 +14,7 @@ import { NAV_LINKS } from '../lib';
 <aside
 	id="sidebar"
 	class="fixed top-0 left-0 w-full h-screen bg-background z-50 md:hidden transform translate-x-full transition-transform duration-200"
+	transition:persist
 >
 	<div class="px-6 h-full">
 		<div class="flex justify-end h-[72px] items-center">
@@ -43,28 +44,36 @@ import { NAV_LINKS } from '../lib';
 </aside>
 
 <script>
-	const openBtn = document.getElementById('open-sidebar');
-	const closeBtn = document.getElementById('close-sidebar');
-	const sidebar = document.getElementById('sidebar');
-	const links = sidebar?.querySelectorAll('a');
+	function initSidebar() {
+		const openBtn = document.getElementById('open-sidebar');
+		const closeBtn = document.getElementById('close-sidebar');
+		const sidebar = document.getElementById('sidebar');
+		const links = sidebar?.querySelectorAll('a');
 
-	function openSidebar() {
-		sidebar?.classList.remove('translate-x-full');
-		sidebar?.classList.add('translate-x-0');
-		document.body.style.overflow = 'hidden';
+		function openSidebar() {
+			sidebar?.classList.remove('translate-x-full');
+			sidebar?.classList.add('translate-x-0');
+			document.body.style.overflow = 'hidden';
+		}
+
+		function closeSidebar() {
+			sidebar?.classList.remove('translate-x-0');
+			sidebar?.classList.add('translate-x-full');
+			document.body.style.overflow = '';
+		}
+
+		openBtn?.addEventListener('click', openSidebar);
+		closeBtn?.addEventListener('click', closeSidebar);
+		links?.forEach(link => link.addEventListener('click', closeSidebar));
+
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') closeSidebar();
+		});
 	}
 
-	function closeSidebar() {
-		sidebar?.classList.remove('translate-x-0');
-		sidebar?.classList.add('translate-x-full');
-		document.body.style.overflow = '';
-	}
+	// Run on initial load
+	initSidebar();
 
-	openBtn?.addEventListener('click', openSidebar);
-	closeBtn?.addEventListener('click', closeSidebar);
-	links?.forEach(link => link.addEventListener('click', closeSidebar));
-
-	document.addEventListener('keydown', (e) => {
-		if (e.key === 'Escape') closeSidebar();
-	});
+	// Re-run after View Transitions navigation
+	document.addEventListener('astro:after-swap', initSidebar);
 </script>
