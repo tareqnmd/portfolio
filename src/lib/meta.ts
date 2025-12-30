@@ -1,12 +1,12 @@
 // App Metadata
 export const APP_NAME = 'Md Tareq';
 export const APP_DESCRIPTION =
-	'Welcome to my personal portfolio. I am a passionate Software Developer specializing in creating beautiful and functional web applications. Explore my projects to see my skills in action.';
+	'Welcome to my personal portfolio. I am a passionate Software Engineer specializing in creating beautiful and functional web applications. Explore my projects to see my skills in action.';
 
 export const APP_AUTHOR = 'Md Tareq';
 export const APP_USERNAME = 'tareqnmd';
 export const APP_KEYWORDS =
-	'Software Developer, Web Developer, Portfolio, Projects, Skills, React, Next.js, Tailwind CSS, TypeScript, JavaScript, HTML, CSS';
+	'Software Engineer, Web Developer, Portfolio, Projects, Skills, React, Next.js, Tailwind CSS, TypeScript, JavaScript, HTML, CSS';
 
 // Contact & Social Links
 export const APP_AUTHOR_EMAIL = 'tareqnmd@gmail.com';
