@@ -1,94 +1,77 @@
 ---
-import { Routes } from '../lib';
-import { RxHamburgerMenu } from 'react-icons/rx';
-import { IoClose } from 'react-icons/io5';
+import { FiMenu, FiX } from 'react-icons/fi';
+
+const navLinks = [
+	{ name: 'Home', href: '#home' },
+	{ name: 'About', href: '#about' },
+	{ name: 'Projects', href: '#projects' },
+	{ name: 'Blog', href: '#blogs' },
+];
 ---
 
 <button
 	id="open-sidebar"
-	aria-label="Open sidebar"
-	class="lg:hidden"
+	aria-label="Open menu"
+	class="md:hidden text-foreground-muted hover:text-foreground transition-colors p-2"
 >
-	<RxHamburgerMenu size={24} />
+	<FiMenu size={20} />
 </button>
+
 <aside
 	id="sidebar"
-	class="fixed top-0 -right-[12rem] min-h-screen w-full bg-background z-50 lg:hidden transition-all max-w-[12rem] flex flex-col p-4 gap-4 border-l border-border"
+	class="fixed top-0 left-0 w-full h-full z-50 md:hidden transform translate-x-full transition-transform duration-200"
+	style="background-color: #0f0f0f; min-height: 100vh; min-height: 100dvh;"
 >
-	<button
-		id="close-sidebar"
-		class="ml-auto"
-		aria-label="Close sidebar"
-	>
-		<IoClose size={24} />
-	</button>
-	<nav aria-label="Sidebar navigation">
-		<ul class="sidebar-list flex flex-col gap-2">
-			<li class="sidebar-item border-b border-border py-2">
-				<a
-					href={Routes.HOME}
-					aria-label="Home page"
-					>Home</a
-				>
-			</li>
-			<li class="sidebar-item border-b border-border py-2">
-				<a
-					href={Routes.ABOUT}
-					aria-label="About page"
-					>About</a
-				>
-			</li>
-			<li class="sidebar-item border-b border-border py-2">
-				<a
-					href={Routes.BLOGS}
-					aria-label="Blogs page"
-					>Blogs</a
-				>
-			</li>
-			<li class="sidebar-item border-b border-border py-2">
-				<a
-					href={Routes.PROJECTS}
-					aria-label="Projects page"
-					>Projects</a
-				>
-			</li>
-			<li class="sidebar-item border-b border-border py-2">
-				<a
-					href={Routes.CONTACT}
-					aria-label="Contact page"
-					>Contact</a
-				>
-			</li>
-		</ul>
-	</nav>
+	<div class="px-6 h-full">
+		<div class="flex justify-end h-[72px] items-center">
+			<button
+				id="close-sidebar"
+				class="text-foreground-muted hover:text-foreground transition-colors p-2"
+				aria-label="Close menu"
+			>
+				<FiX size={20} />
+			</button>
+		</div>
+		<nav aria-label="Mobile navigation">
+			<ul class="space-y-1">
+				{navLinks.map(link => (
+					<li>
+						<a
+							href={link.href}
+							class="block py-3 text-foreground-muted hover:text-foreground transition-colors"
+						>
+							{link.name}
+						</a>
+					</li>
+				))}
+			</ul>
+		</nav>
+	</div>
 </aside>
 
 <script>
-	const openSidebarBtn = document.getElementById('open-sidebar');
-	const closeSidebarBtn = document.getElementById('close-sidebar');
+	const openBtn = document.getElementById('open-sidebar');
+	const closeBtn = document.getElementById('close-sidebar');
 	const sidebar = document.getElementById('sidebar');
+	const links = sidebar?.querySelectorAll('a');
 
-	openSidebarBtn?.addEventListener('click', () => {
-		sidebar?.classList.remove('-right-[12rem]');
-		sidebar?.classList.add('right-0');
-	});
-
-	closeSidebarBtn?.addEventListener('click', closeSidebar);
-
-	function closeSidebar() {
-		sidebar?.classList.remove('right-0');
-		sidebar?.classList.add('-right-[12rem]');
+	function openSidebar() {
+		sidebar?.classList.remove('translate-x-full');
+		sidebar?.classList.add('translate-x-0');
+		document.body.style.overflow = 'hidden';
 	}
 
-	document.addEventListener('click', (e) => {
-		if (!sidebar || !openSidebarBtn) return;
+	function closeSidebar() {
+		sidebar?.classList.remove('translate-x-0');
+		sidebar?.classList.add('translate-x-full');
+		document.body.style.overflow = '';
+	}
 
-		const isSidebarOpen = sidebar.classList.contains('right-0');
-		if (!isSidebarOpen) return;
+	openBtn?.addEventListener('click', openSidebar);
+	closeBtn?.addEventListener('click', closeSidebar);
+	links?.forEach(link => link.addEventListener('click', closeSidebar));
 
-		const path = e.composedPath();
-		if (!path.includes(sidebar) && !path.includes(openSidebarBtn)) {
-			closeSidebar();
-		}
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape') closeSidebar();
 	});
 </script>

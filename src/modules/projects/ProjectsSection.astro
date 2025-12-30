@@ -1,0 +1,57 @@
+---
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { PROJECTS } from '../../lib';
+---
+
+<section
+	id="projects"
+	class="section"
+	aria-label="Projects section"
+>
+	<div class="container mx-auto flex flex-col gap-12">
+		<div class="flex flex-col gap-2">
+			<h2 class="animate-on-scroll section-title">Projects</h2>
+			<p class="animate-on-scroll animate-delay-100 section-subtitle">
+				Selected work and side projects
+			</p>
+		</div>
+		
+		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+			{PROJECTS.map((project, index) => (
+				<article class={`animate-on-scroll animate-delay-${((index % 3) + 1) * 100} card p-5 flex flex-col gap-3`}>
+					<div class="flex items-start justify-between">
+						<h3 class="font-medium text-foreground">{project.title}</h3>
+						<div class="flex gap-2">
+							<a 
+								href={project.github}
+								class="text-foreground-muted hover:text-foreground transition-colors"
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label={`GitHub repository for ${project.title}`}
+							>
+								<FaGithub className="text-lg" />
+							</a>
+							<a 
+								href={project.live}
+								class="text-foreground-muted hover:text-foreground transition-colors"
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label={`Live demo for ${project.title}`}
+							>
+								<FaExternalLinkAlt className="text-sm" />
+							</a>
+						</div>
+					</div>
+					<p class="text-sm text-foreground-muted flex-grow">
+						{project.description}
+					</p>
+					<div class="flex flex-wrap gap-2">
+						{project.tags.map(tag => (
+							<span class="tech-tag">{tag}</span>
+						))}
+					</div>
+				</article>
+			))}
+		</div>
+	</div>
+</section>

@@ -2,12 +2,12 @@
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import {
-	APP_AUTHOR,
-	APP_AUTHOR_WEBSITE,
-	APP_DESCRIPTION,
-	APP_KEYWORDS,
-	APP_NAME,
-	APP_USERNAME,
+APP_AUTHOR,
+APP_AUTHOR_WEBSITE,
+APP_DESCRIPTION,
+APP_KEYWORDS,
+APP_NAME,
+APP_USERNAME,
 } from '../lib';
 import '../styles/global.css';
 ---
@@ -28,7 +28,7 @@ import '../styles/global.css';
 			type="image/svg+xml"
 			href="/favicon.ico"
 		/>
-		<title>{APP_NAME}</title>
+		<title>{APP_NAME} | Software Developer Portfolio</title>
 		<meta
 			name="description"
 			content={APP_DESCRIPTION}
@@ -75,18 +75,18 @@ import '../styles/global.css';
 
 		<meta
 			name="theme-color"
-			content="#096b68"
+			content="#0f0f0f"
 		/>
 	</head>
 	<body
 		id={APP_USERNAME}
-		class="grid grid-rows-[auto_1fr_auto] min-h-screen gap-4 w-full"
+		class="min-h-screen w-full"
 	>
 		<Header />
 		<main
 			id="main-content"
-			class="container"
 			role="main"
+			class="flex flex-col"
 		>
 			<slot />
 		</main>

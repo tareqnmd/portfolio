@@ -1,72 +1,89 @@
 ---
-import Logo from '../assets/logo.svg';
-import { cn, Routes } from '../lib';
+import { APP_NAME } from '../lib';
 import HeaderSidebar from './HeaderSidebar.astro';
-const { pathname } = Astro.url;
-const isActive = (path: string) => pathname === path;
+
+const navLinks = [
+	{ name: 'Home', href: '#home' },
+	{ name: 'About', href: '#about' },
+	{ name: 'Projects', href: '#projects' },
+	{ name: 'Blog', href: '#blogs' },
+];
 ---
 
 <header
-	class="header container flex justify-between items-center py-4"
+	class="header"
 	role="banner"
 >
-	<a
-		class="logo inline-flex items-center hover:opacity-80 transition-opacity"
-		href={Routes.HOME}
-		aria-label="Home"
-	>
-		<Logo fill="currentColor" />
-	</a>
-	<nav
-		class="nav hidden lg:block"
-		aria-label="Main navigation"
-	>
-		<ul class="nav-list flex items-center gap-6">
-			<li>
-				<a
-					class={cn(
-						'nav-link hover:text-primary transition-colors',
-						isActive(Routes.ABOUT) && 'text-primary'
-					)}
-					href={Routes.ABOUT}
-					aria-label="About me page"
-					>About me</a
-				>
-			</li>
-			<li>
-				<a
-					class={cn(
-						'nav-link hover:text-primary transition-colors',
-						isActive(Routes.BLOGS) && 'text-primary'
-					)}
-					href={Routes.BLOGS}
-					aria-label="Blogs page"
-					>Blogs</a
-				>
-			</li>
-			<li>
-				<a
-					class={cn(
-						'nav-link hover:text-primary transition-colors',
-						isActive(Routes.PROJECTS) && 'text-primary'
-					)}
-					href={Routes.PROJECTS}
-					aria-label="Projects page"
-					>Projects</a
-				>
-			</li>
-			<li>
-				<a
-					class={cn(
-						'nav-link hover:text-primary transition-colors',
-						isActive(Routes.CONTACT) && 'text-primary'
-					)}
-					href={Routes.CONTACT}
-					aria-label="Contact page"
-					>Contact</a
-				>
-			</li>
-		</ul>
-	</nav>
-	<HeaderSidebar />
+	<div class="container mx-auto px-4 flex justify-between items-center h-[72px]">
+		<a
+			class="text-lg font-semibold text-foreground hover:text-primary transition-colors"
+			href="#home"
+			aria-label="Home"
+		>
+			{APP_NAME}
+		</a>
+		<nav
+			class="nav hidden md:block"
+			aria-label="Main navigation"
+		>
+			<ul class="nav-list flex items-center gap-8">
+				{navLinks.map(link => (
+					<li>
+						<a
+							class="nav-link"
+							href={link.href}
+							aria-label={`${link.name} section`}
+							data-section={link.href.replace('#', '')}
+						>
+							{link.name}
+						</a>
+					</li>
+				))}
+			</ul>
+		</nav>
+		<HeaderSidebar />
+	</div>
 </header>
+
+<script>
+	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+		anchor.addEventListener('click', function(e) {
+			e.preventDefault();
+			const href = this.getAttribute('href');
+			if (!href) return;
+			
+			const target = document.querySelector(href);
+			if (target) {
+				const headerHeight = 72;
+				const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+				
+				window.scrollTo({
+					top: targetPosition,
+					behavior: 'smooth'
+				});
+			}
+		});
+	});
+
+	const sections = document.querySelectorAll('section[id]');
+	const navLinks = document.querySelectorAll('.nav-link[data-section]');
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				const sectionId = entry.target.getAttribute('id');
+				navLinks.forEach(link => {
+					link.classList.remove('active');
+					if (link.getAttribute('data-section') === sectionId) {
+						link.classList.add('active');
+					}
+				});
+			}
+		});
+	}, {
+		rootMargin: '-20% 0px -80% 0px',
+		threshold: 0
+	});
+
+	sections.forEach(section => observer.observe(section));
+</script>
