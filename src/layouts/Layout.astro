@@ -19,64 +19,43 @@ import '../styles/global.css';
 >
 	<head>
 		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
-		<link
-			rel="icon"
-			type="image/svg+xml"
-			href="/favicon.ico"
-		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
 		<title>{APP_NAME} | Software Developer Portfolio</title>
-		<meta
-			name="description"
-			content={APP_DESCRIPTION}
-		/>
-		<meta
-			name="author"
-			content={APP_AUTHOR}
-		/>
-		<meta
-			name="keywords"
-			content={APP_KEYWORDS}
-		/>
+		<meta name="description" content={APP_DESCRIPTION} />
+		<meta name="author" content={APP_AUTHOR} />
+		<meta name="keywords" content={APP_KEYWORDS} />
 
-		<link
-			rel="preconnect"
-			href="https://fonts.googleapis.com"
-		/>
-		<link
-			rel="preconnect"
-			href="https://fonts.gstatic.com"
-			crossorigin
-		/>
-		<link
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-		/>
+		<!-- Favicons -->
+		<link rel="icon" type="image/x-icon" href="/meta/favicon.ico" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/meta/favicon-16x16.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/meta/favicon-32x32.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/meta/apple-touch-icon.png" />
 
-		<meta
-			property="og:type"
-			content="website"
-		/>
-		<meta
-			property="og:title"
-			content={APP_NAME}
-		/>
-		<meta
-			property="og:description"
-			content={APP_DESCRIPTION}
-		/>
-		<meta
-			property="og:url"
-			content={APP_AUTHOR_WEBSITE}
-		/>
+		<!-- PWA / Android -->
+		<link rel="icon" type="image/png" sizes="192x192" href="/meta/android-chrome-192x192.png" />
+		<link rel="icon" type="image/png" sizes="512x512" href="/meta/android-chrome-512x512.png" />
+		<meta name="theme-color" content="#0f0f0f" />
 
-		<meta
-			name="theme-color"
-			content="#0f0f0f"
-		/>
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={APP_NAME} />
+		<meta property="og:description" content={APP_DESCRIPTION} />
+		<meta property="og:url" content={APP_AUTHOR_WEBSITE} />
+		<meta property="og:image" content={`${APP_AUTHOR_WEBSITE}/assets/tareq.webp`} />
+		<meta property="og:site_name" content={APP_NAME} />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={APP_NAME} />
+		<meta name="twitter:description" content={APP_DESCRIPTION} />
+		<meta name="twitter:image" content={`${APP_AUTHOR_WEBSITE}/assets/tareq.webp`} />
+		<meta name="twitter:creator" content={`@${APP_USERNAME}`} />
 	</head>
 	<body
 		id={APP_USERNAME}
