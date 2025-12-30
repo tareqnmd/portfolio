@@ -1,5 +1,6 @@
 ---
 import { FaChevronDown, FaCode, FaGithub } from 'react-icons/fa';
+import Button from '../../components/Button.astro';
 import { APP_AUTHOR, APP_AUTHOR_GITHUB, APP_DESCRIPTION } from '../../lib';
 ---
 
@@ -20,14 +21,14 @@ import { APP_AUTHOR, APP_AUTHOR_GITHUB, APP_DESCRIPTION } from '../../lib';
 				{APP_DESCRIPTION}
 			</p>
 			<div class="animate-on-scroll animate-delay-300 flex flex-wrap gap-3 mt-4">
-				<a href="#projects" class="btn-primary">
+				<Button href="#projects">
 					<FaCode className="text-base" />
 					View Projects
-				</a>
-				<a href={APP_AUTHOR_GITHUB} target="_blank" rel="noopener noreferrer" class="btn-secondary">
+				</Button>
+				<Button href={APP_AUTHOR_GITHUB} variant="secondary" external>
 					<FaGithub className="text-lg" />
 					GitHub
-				</a>
+				</Button>
 			</div>
 		</div>
 	</div>

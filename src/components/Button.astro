@@ -1,0 +1,31 @@
+---
+interface Props {
+	variant?: 'primary' | 'secondary';
+	href?: string;
+	external?: boolean;
+	class?: string;
+	type?: 'button' | 'submit' | 'reset';
+}
+
+const { 
+	variant = 'primary', 
+	href, 
+	external = false,
+	class: className,
+	type = 'button'
+} = Astro.props;
+
+const baseClass = variant === 'primary' ? 'btn-primary' : 'btn-secondary';
+const externalProps = external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+---
+
+{href ? (
+	<a href={href} class:list={[baseClass, className]} {...externalProps}>
+		<slot />
+	</a>
+) : (
+	<button type={type} class:list={[baseClass, className]}>
+		<slot />
+	</button>
+)}
+

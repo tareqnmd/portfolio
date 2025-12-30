@@ -1,46 +1,38 @@
 ---
+import Section from '../../components/Section.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import Card from '../../components/Card.astro';
 import { FaArrowRight } from 'react-icons/fa';
 import { BLOGS, ExternalLinks } from '../../lib';
 ---
 
-<section
-	id="blogs"
-	class="section"
-	aria-label="Blog section"
->
-	<div class="container mx-auto flex flex-col gap-12">
-		<div class="flex flex-col gap-2">
-			<h2 class="animate-on-scroll section-title">Blog</h2>
-			<p class="animate-on-scroll animate-delay-100 section-subtitle">
-				Thoughts and tutorials
-			</p>
-		</div>
-		
-		<div class="grid md:grid-cols-2 gap-5">
-			{BLOGS.map((blog, index) => (
-				<article class={`animate-on-scroll animate-delay-${((index % 2) + 1) * 100} card p-5 group flex flex-col gap-3`}>
-					<div class="flex items-center gap-3 text-sm text-foreground-muted">
-						<span>{blog.date}</span>
-						<span>•</span>
-						<span>{blog.readTime}</span>
-					</div>
-					<h3 class="font-medium text-foreground group-hover:text-primary transition-colors">
-						{blog.title}
-					</h3>
-					<p class="text-sm text-foreground-muted flex-grow">
-						{blog.excerpt}
-					</p>
-					<a 
-						href={ExternalLinks.BLOG}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="inline-flex items-center gap-2 text-sm text-primary font-medium group/link self-start"
-					>
-						Read more 
-						<FaArrowRight className="text-xs transition-transform group-hover/link:translate-x-1" />
-					</a>
-				</article>
-			))}
-		</div>
+<Section id="blogs" label="Blog section">
+	<SectionHeader title="Blog" subtitle="Thoughts and tutorials" />
+	
+	<div class="grid md:grid-cols-2 gap-5">
+		{BLOGS.map((blog, index) => (
+			<Card as="article" class={`animate-on-scroll animate-delay-${((index % 2) + 1) * 100} group flex flex-col gap-3`}>
+				<div class="flex items-center gap-3 text-sm text-foreground-muted">
+					<span>{blog.date}</span>
+					<span>•</span>
+					<span>{blog.readTime}</span>
+				</div>
+				<h3 class="font-medium text-foreground group-hover:text-primary transition-colors">
+					{blog.title}
+				</h3>
+				<p class="text-sm text-foreground-muted flex-grow">
+					{blog.excerpt}
+				</p>
+				<a 
+					href={ExternalLinks.BLOG}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-flex items-center gap-2 text-sm text-primary font-medium group/link self-start"
+				>
+					Read more 
+					<FaArrowRight className="text-xs transition-transform group-hover/link:translate-x-1" />
+				</a>
+			</Card>
+		))}
 	</div>
-</section>
+</Section>
