@@ -18,6 +18,11 @@ export const ExternalLinks = {
 	EMAIL: 'tareqnmd@gmail.com',
 } as const;
 
+// Google Analytics & Search Console
+// Replace with your actual IDs from Google
+export const GOOGLE_ANALYTICS_ID = 'G-XXXXXXXXXX'; // Get from: https://analytics.google.com
+export const GOOGLE_SITE_VERIFICATION = 'your-verification-code'; // Get from: https://search.google.com/search-console
+
 // Derived exports for backward compatibility
 export const APP_AUTHOR_EMAIL = ExternalLinks.EMAIL;
 export const APP_AUTHOR_WEBSITE = ExternalLinks.WEBSITE;

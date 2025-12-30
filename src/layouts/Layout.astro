@@ -1,16 +1,22 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import {
-APP_AUTHOR,
-APP_AUTHOR_WEBSITE,
-APP_DESCRIPTION,
-APP_KEYWORDS,
-APP_NAME,
-APP_USERNAME,
+	APP_AUTHOR,
+	APP_AUTHOR_WEBSITE,
+	APP_DESCRIPTION,
+	APP_KEYWORDS,
+	APP_NAME,
+	APP_USERNAME,
+	GOOGLE_ANALYTICS_ID,
+	GOOGLE_SITE_VERIFICATION,
 } from '../lib';
 import '../styles/global.css';
+
+const isProduction = import.meta.env.PROD;
+const hasAnalytics = GOOGLE_ANALYTICS_ID && !GOOGLE_ANALYTICS_ID.includes('XXXXXXXXXX');
+const hasVerification = GOOGLE_SITE_VERIFICATION && GOOGLE_SITE_VERIFICATION !== 'your-verification-code';
 ---
 
 <!doctype html>
@@ -28,6 +34,11 @@ import '../styles/global.css';
 		<meta name="keywords" content={APP_KEYWORDS} />
 		<meta name="robots" content="index, follow" />
 		<link rel="canonical" href={APP_AUTHOR_WEBSITE} />
+
+		<!-- Google Search Console Verification -->
+		{hasVerification && (
+			<meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
+		)}
 
 		<!-- Favicons -->
 		<link rel="icon" type="image/x-icon" href="/meta/favicon.ico" />
@@ -61,8 +72,21 @@ import '../styles/global.css';
 		<meta name="twitter:image" content={`${APP_AUTHOR_WEBSITE}/assets/tareq.webp`} />
 		<meta name="twitter:creator" content={`@${APP_USERNAME}`} />
 
-		<!-- View Transitions for SPA-like navigation -->
-		<ViewTransitions />
+		<!-- Google Analytics 4 (only in production) -->
+		{isProduction && hasAnalytics && (
+			<>
+				<script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}></script>
+				<script is:inline define:vars={{ GOOGLE_ANALYTICS_ID }}>
+					window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					gtag('js', new Date());
+					gtag('config', GOOGLE_ANALYTICS_ID);
+				</script>
+			</>
+		)}
+
+		<!-- Client Router for SPA-like navigation -->
+		<ClientRouter />
 	</head>
 	<body
 		id={APP_USERNAME}
