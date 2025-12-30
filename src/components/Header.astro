@@ -1,13 +1,6 @@
 ---
-import { APP_NAME } from '../lib';
+import { APP_NAME, NAV_LINKS } from '../lib';
 import HeaderSidebar from './HeaderSidebar.astro';
-
-const navLinks = [
-	{ name: 'Home', href: '#home' },
-	{ name: 'About', href: '#about' },
-	{ name: 'Projects', href: '#projects' },
-	{ name: 'Blog', href: '#blogs' },
-];
 ---
 
 <header
@@ -27,7 +20,7 @@ const navLinks = [
 			aria-label="Main navigation"
 		>
 			<ul class="nav-list flex items-center gap-8">
-				{navLinks.map(link => (
+				{NAV_LINKS.map(link => (
 					<li>
 						<a
 							class="nav-link"

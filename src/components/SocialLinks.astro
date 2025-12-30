@@ -1,5 +1,5 @@
 ---
-import { FaEnvelope, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import Icon from './icons/index.astro';
 import {
 	APP_AUTHOR_EMAIL,
 	APP_AUTHOR_GITHUB,
@@ -15,16 +15,16 @@ interface Props {
 const { class: className, size = 'md' } = Astro.props;
 
 const socialLinks = [
-	{ name: 'GitHub', icon: FaGithub, url: APP_AUTHOR_GITHUB },
-	{ name: 'LinkedIn', icon: FaLinkedin, url: APP_AUTHOR_LINKEDIN },
-	{ name: 'Twitter', icon: FaTwitter, url: APP_AUTHOR_TWITTER },
-	{ name: 'Email', icon: FaEnvelope, url: `mailto:${APP_AUTHOR_EMAIL}` },
+	{ name: 'GitHub', icon: 'github' as const, url: APP_AUTHOR_GITHUB },
+	{ name: 'LinkedIn', icon: 'linkedin' as const, url: APP_AUTHOR_LINKEDIN },
+	{ name: 'Twitter', icon: 'twitter' as const, url: APP_AUTHOR_TWITTER },
+	{ name: 'Email', icon: 'envelope' as const, url: `mailto:${APP_AUTHOR_EMAIL}` },
 ];
 
-const sizeClasses: Record<NonNullable<Props['size']>, string> = {
-	sm: 'w-8 h-8 text-base',
-	md: 'w-10 h-10 text-lg',
-	lg: 'w-12 h-12 text-xl'
+const sizeClasses: Record<NonNullable<Props['size']>, { container: string; icon: number }> = {
+	sm: { container: 'w-8 h-8', icon: 16 },
+	md: { container: 'w-10 h-10', icon: 18 },
+	lg: { container: 'w-12 h-12', icon: 20 }
 };
 ---
 
@@ -34,11 +34,10 @@ const sizeClasses: Record<NonNullable<Props['size']>, string> = {
 			href={social.url}
 			target="_blank"
 			rel="noopener noreferrer"
-			class:list={["social-link", sizeClasses[size]]}
+			class:list={["social-link", sizeClasses[size].container]}
 			aria-label={social.name}
 		>
-			<social.icon />
+			<Icon name={social.icon} size={sizeClasses[size].icon} />
 		</a>
 	))}
 </div>
-

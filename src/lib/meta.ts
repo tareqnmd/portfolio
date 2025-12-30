@@ -8,18 +8,20 @@ export const APP_USERNAME = 'tareqnmd';
 export const APP_KEYWORDS =
 	'Software Engineer, Web Developer, Portfolio, Projects, Skills, React, Next.js, Tailwind CSS, TypeScript, JavaScript, HTML, CSS';
 
-// Contact & Social Links
-export const APP_AUTHOR_EMAIL = 'tareqnmd@gmail.com';
-export const APP_AUTHOR_WEBSITE = 'https://tareqnmd.com';
-export const APP_AUTHOR_TWITTER = 'https://twitter.com/tareqnmd';
-export const APP_AUTHOR_LINKEDIN = 'https://linkedin.com/in/tareqnmd';
-export const APP_AUTHOR_GITHUB = 'https://github.com/tareqnmd';
-export const APP_AUTHOR_BLOG = 'https://blog.tareqnmd.com';
-
-// External Links Object
+// External Links (Single source of truth)
 export const ExternalLinks = {
+	WEBSITE: 'https://tareqnmd.com',
 	BLOG: 'https://blog.tareqnmd.com',
 	GITHUB: 'https://github.com/tareqnmd',
 	LINKEDIN: 'https://linkedin.com/in/tareqnmd',
 	TWITTER: 'https://twitter.com/tareqnmd',
+	EMAIL: 'tareqnmd@gmail.com',
 } as const;
+
+// Derived exports for backward compatibility
+export const APP_AUTHOR_EMAIL = ExternalLinks.EMAIL;
+export const APP_AUTHOR_WEBSITE = ExternalLinks.WEBSITE;
+export const APP_AUTHOR_TWITTER = ExternalLinks.TWITTER;
+export const APP_AUTHOR_LINKEDIN = ExternalLinks.LINKEDIN;
+export const APP_AUTHOR_GITHUB = ExternalLinks.GITHUB;
+export const APP_AUTHOR_BLOG = ExternalLinks.BLOG;

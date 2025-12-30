@@ -1,44 +1,37 @@
 ---
-import { FiMenu, FiX } from 'react-icons/fi';
-
-const navLinks = [
-	{ name: 'Home', href: '#home' },
-	{ name: 'About', href: '#about' },
-	{ name: 'Projects', href: '#projects' },
-	{ name: 'Blog', href: '#blogs' },
-];
+import Icon from './icons/index.astro';
+import { NAV_LINKS } from '../lib';
 ---
 
 <button
 	id="open-sidebar"
 	aria-label="Open menu"
-	class="md:hidden text-foreground-muted hover:text-foreground transition-colors p-2"
+	class="md:hidden text-muted hover:text-foreground transition-colors p-2"
 >
-	<FiMenu size={20} />
+	<Icon name="menu" size={20} />
 </button>
 
 <aside
 	id="sidebar"
-	class="fixed top-0 left-0 w-full h-full z-50 md:hidden transform translate-x-full transition-transform duration-200"
-	style="background-color: #0f0f0f; min-height: 100vh; min-height: 100dvh;"
+	class="fixed top-0 left-0 w-full h-screen bg-background z-50 md:hidden transform translate-x-full transition-transform duration-200"
 >
 	<div class="px-6 h-full">
 		<div class="flex justify-end h-[72px] items-center">
 			<button
 				id="close-sidebar"
-				class="text-foreground-muted hover:text-foreground transition-colors p-2"
+				class="text-muted hover:text-foreground transition-colors p-2"
 				aria-label="Close menu"
 			>
-				<FiX size={20} />
+				<Icon name="x" size={20} />
 			</button>
 		</div>
 		<nav aria-label="Mobile navigation">
 			<ul class="space-y-1">
-				{navLinks.map(link => (
+				{NAV_LINKS.map(link => (
 					<li>
 						<a
 							href={link.href}
-							class="block py-3 text-foreground-muted hover:text-foreground transition-colors"
+							class="block py-3 text-muted hover:text-foreground transition-colors"
 						>
 							{link.name}
 						</a>

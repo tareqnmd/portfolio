@@ -2,8 +2,10 @@
 import Section from '../../components/Section.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import Card from '../../components/Card.astro';
-import { FaArrowRight } from 'react-icons/fa';
+import Icon from '../../components/icons/index.astro';
 import { BLOGS, ExternalLinks } from '../../lib';
+
+const delayClasses = ['animate-delay-100', 'animate-delay-200'];
 ---
 
 <Section id="blogs" label="Blog section">
@@ -11,8 +13,8 @@ import { BLOGS, ExternalLinks } from '../../lib';
 	
 	<div class="grid md:grid-cols-2 gap-5">
 		{BLOGS.map((blog, index) => (
-			<Card as="article" class={`animate-on-scroll animate-delay-${((index % 2) + 1) * 100} group flex flex-col gap-3`}>
-				<div class="flex items-center gap-3 text-sm text-foreground-muted">
+			<Card as="article" class:list={["animate-on-scroll group flex flex-col gap-3", delayClasses[index % 2]]}>
+				<div class="flex items-center gap-3 text-sm text-muted">
 					<span>{blog.date}</span>
 					<span>•</span>
 					<span>{blog.readTime}</span>
@@ -20,7 +22,7 @@ import { BLOGS, ExternalLinks } from '../../lib';
 				<h3 class="font-medium text-foreground group-hover:text-primary transition-colors">
 					{blog.title}
 				</h3>
-				<p class="text-sm text-foreground-muted flex-grow">
+				<p class="text-sm text-muted flex-grow">
 					{blog.excerpt}
 				</p>
 				<a 
@@ -30,7 +32,7 @@ import { BLOGS, ExternalLinks } from '../../lib';
 					class="inline-flex items-center gap-2 text-sm text-primary font-medium group/link self-start"
 				>
 					Read more 
-					<FaArrowRight className="text-xs transition-transform group-hover/link:translate-x-1" />
+					<Icon name="arrow-right" size={12} class="transition-transform group-hover/link:translate-x-1" />
 				</a>
 			</Card>
 		))}
