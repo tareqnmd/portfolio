@@ -75,7 +75,7 @@ const hasVerification = GOOGLE_SITE_VERIFICATION && GOOGLE_SITE_VERIFICATION !==
 		<!-- Google Analytics 4 (only in production) -->
 		{isProduction && hasAnalytics && (
 			<>
-				<script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}></script>
+				<script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}></script>
 				<script is:inline define:vars={{ GOOGLE_ANALYTICS_ID }}>
 					window.dataLayer = window.dataLayer || [];
 					function gtag(){dataLayer.push(arguments);}
