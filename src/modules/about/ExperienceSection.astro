@@ -1,0 +1,70 @@
+---
+import { FaBriefcase, FaGraduationCap } from 'react-icons/fa';
+import { EXPERIENCES } from '../../lib';
+---
+
+<section
+	id="experience"
+	class="section"
+	aria-label="Experience section"
+>
+	<div class="container mx-auto flex flex-col gap-12">
+		<div class="flex flex-col gap-2">
+			<h2 class="animate-on-scroll section-title">Experience</h2>
+			<p class="animate-on-scroll animate-delay-100 section-subtitle">
+				My professional journey
+			</p>
+		</div>
+		
+		<!-- Timeline -->
+		<div class="relative">
+			<!-- Timeline line -->
+			<div class="absolute left-4 top-0 bottom-0 w-px bg-border md:left-1/2 md:-translate-x-px"></div>
+			
+			<div class="flex flex-col gap-8">
+				{EXPERIENCES.map((exp, index) => (
+					<div class={`animate-on-scroll animate-delay-${(index + 1) * 100} relative flex gap-8 md:gap-0`}>
+						<!-- Timeline dot -->
+						<div class="absolute left-4 md:left-1/2 w-8 h-8 -translate-x-1/2 flex items-center justify-center rounded-full bg-background border-2 border-primary z-10">
+							{exp.type === 'work' ? (
+								<FaBriefcase className="text-primary text-sm" />
+							) : (
+								<FaGraduationCap className="text-primary text-sm" />
+							)}
+						</div>
+						
+						<!-- Content -->
+						<div class={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12 md:ml-auto'}`}>
+							<div class="card p-5 flex flex-col gap-2">
+								<div class={`flex flex-col gap-1 ${index % 2 === 0 ? 'md:items-end' : ''}`}>
+									<span class="text-xs font-medium text-primary">
+										{exp.startDate} — {exp.endDate}
+									</span>
+									<h4 class="font-medium text-foreground">{exp.title}</h4>
+									<p class="text-sm text-foreground-muted">{exp.organization}</p>
+									{exp.location && (
+										<p class="text-xs text-foreground-muted">{exp.location}</p>
+									)}
+								</div>
+								<p class={`text-sm text-foreground-muted ${index % 2 === 0 ? 'md:text-right' : ''}`}>
+									{exp.description}
+								</p>
+								{exp.highlights && exp.highlights.length > 0 && (
+									<ul class={`flex flex-col gap-1 text-sm text-foreground-muted ${index % 2 === 0 ? 'md:items-end' : ''}`}>
+										{exp.highlights.map(highlight => (
+											<li class="flex items-center gap-2">
+												<span class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></span>
+												{highlight}
+											</li>
+										))}
+									</ul>
+								)}
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</div>
+</section>
+
