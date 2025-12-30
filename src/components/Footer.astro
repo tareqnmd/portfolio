@@ -1,21 +1,8 @@
 ---
-import { FaEnvelope, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
-import {
-APP_AUTHOR_EMAIL,
-APP_AUTHOR_GITHUB,
-APP_AUTHOR_LINKEDIN,
-APP_AUTHOR_TWITTER,
-APP_NAME
-} from '../lib';
+import SocialLinks from './SocialLinks.astro';
+import { APP_NAME } from '../lib';
 
 const year = new Date().getFullYear();
-
-const socialLinks = [
-	{ name: 'GitHub', icon: FaGithub, url: APP_AUTHOR_GITHUB },
-	{ name: 'LinkedIn', icon: FaLinkedin, url: APP_AUTHOR_LINKEDIN },
-	{ name: 'Twitter', icon: FaTwitter, url: APP_AUTHOR_TWITTER },
-	{ name: 'Email', icon: FaEnvelope, url: `mailto:${APP_AUTHOR_EMAIL}` },
-];
 ---
 
 <footer
@@ -25,19 +12,7 @@ const socialLinks = [
 >
 	<div class="container mx-auto">
 		<div class="flex justify-between items-center gap-8 max-md:flex-col">
-			<div class="flex gap-3">
-				{socialLinks.map(social => (
-					<a 
-						href={social.url}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="social-link"
-						aria-label={social.name}
-					>
-						<social.icon className="text-lg" />
-					</a>
-				))}
-			</div>
+			<SocialLinks />
 			<p class="text-sm text-foreground-muted text-center">
 				© {year} {APP_NAME}. All rights reserved.
 			</p>

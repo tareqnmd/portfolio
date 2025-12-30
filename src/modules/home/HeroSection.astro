@@ -1,7 +1,7 @@
 ---
-import { FaChevronDown, FaCode, FaGithub } from 'react-icons/fa';
-import Button from '../../components/Button.astro';
-import { APP_AUTHOR, APP_AUTHOR_GITHUB, APP_DESCRIPTION } from '../../lib';
+import { FaChevronDown } from 'react-icons/fa';
+import SocialLinks from '../../components/SocialLinks.astro';
+import { APP_AUTHOR, APP_DESCRIPTION } from '../../lib';
 ---
 
 <section
@@ -20,16 +20,7 @@ import { APP_AUTHOR, APP_AUTHOR_GITHUB, APP_DESCRIPTION } from '../../lib';
 			<p class="animate-on-scroll animate-delay-200 text-foreground-muted text-lg leading-relaxed">
 				{APP_DESCRIPTION}
 			</p>
-			<div class="animate-on-scroll animate-delay-300 flex flex-wrap gap-3 mt-4">
-				<Button href="#projects">
-					<FaCode className="text-base" />
-					View Projects
-				</Button>
-				<Button href={APP_AUTHOR_GITHUB} variant="secondary" external>
-					<FaGithub className="text-lg" />
-					GitHub
-				</Button>
-			</div>
+			<SocialLinks class="animate-on-scroll animate-delay-300 mt-4" size="md" />
 		</div>
 	</div>
 	
