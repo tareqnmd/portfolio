@@ -1,7 +1,7 @@
 // App Metadata
 export const APP_NAME = 'Md Tareq';
 export const APP_DESCRIPTION =
-	'Welcome to my personal portfolio. I am a passionate Software Engineer specializing in creating beautiful and functional web applications. Explore my projects to see my skills in action.';
+	'I build modern web applications with Next.js and TypeScript — from productivity tools and file-sharing platforms to interactive games. I also write about JavaScript fundamentals to help developers understand the language deeply.';
 
 export const APP_AUTHOR = 'Md Tareq';
 export const APP_USERNAME = 'tareqnmd';

@@ -4,10 +4,10 @@ export interface AboutContent {
 }
 
 export const ABOUT_CONTENT: AboutContent = {
-	intro: 'Background and experience',
+	intro: 'Building practical tools, sharing knowledge',
 	description: [
-		"I'm a software developer with a passion for building clean, efficient, and user-friendly applications. I specialize in modern web technologies and enjoy solving complex problems with simple solutions.",
-		'With experience in both frontend and backend development, I focus on writing maintainable code and creating seamless user experiences.',
+		"I'm a software engineer who loves turning ideas into real products. I've built Share for seamless file collaboration, Organizer for managing budgets and notes, an interactive Chess game, and a blog platform where I write about JavaScript — because I believe understanding the fundamentals makes you a better developer.",
+		'My stack centers around Next.js, TypeScript, React, and Tailwind CSS. I enjoy the full spectrum of web development — from crafting smooth user experiences to architecting scalable backends. When I learn something interesting, I write about it. Topics like closures, hoisting, and scope might seem basic, but mastering them unlocks everything else.',
 	],
 } as const;
 
