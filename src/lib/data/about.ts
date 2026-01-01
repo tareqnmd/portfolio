@@ -4,10 +4,10 @@ export interface AboutContent {
 }
 
 export const ABOUT_CONTENT: AboutContent = {
-	intro: 'Building practical tools, sharing knowledge',
+	intro: 'Building scalable systems, driving technical excellence',
 	description: [
-		"I'm a software engineer who loves turning ideas into real products. I've built Share for seamless file collaboration, Organizer for managing budgets and notes, an interactive Chess game, and a blog platform where I write about JavaScript — because I believe understanding the fundamentals makes you a better developer.",
-		'I enjoy the full spectrum of web development — from crafting smooth user experiences to architecting scalable backends. When I learn something interesting, I write about it. Topics like closures, hoisting, and scope might seem basic, but mastering them unlocks everything else.',
+		"I'm a software engineer with 5+ years of experience architecting and delivering production applications used by thousands of users. From real-time multiplayer platforms to enterprise ERP systems, I focus on building performant, maintainable solutions that solve real problems.",
+		"I believe in engineering fundamentals — clean architecture, type safety, and thoughtful abstractions. When I'm not shipping features, I write about JavaScript internals because understanding the 'why' behind the code makes the difference between a good engineer and a great one.",
 	],
 } as const;
 

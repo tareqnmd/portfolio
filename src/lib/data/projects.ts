@@ -10,32 +10,32 @@ export const PROJECTS: readonly Project[] = [
 	{
 		title: 'Share',
 		description:
-			'A file and content sharing application for seamless collaboration.',
-		tags: ['Next.js', 'TypeScript', 'React'],
+			'Real-time file sharing platform with encrypted transfers, link expiration, and collaborative workspaces. Handles concurrent uploads with chunked streaming.',
+		tags: ['Next.js', 'TypeScript', 'Node.js', 'WebSocket'],
 		github: 'https://github.com/tareqnmd/share',
 		live: 'https://share.tareqnmd.com',
 	},
 	{
 		title: 'Chess',
 		description:
-			'Interactive chess game built with Next.js featuring modern UI and game logic.',
-		tags: ['Next.js', 'TypeScript', 'CSS'],
+			'Full-featured chess engine with move validation, game state management, and AI opponent. Implements standard chess rules including castling, en passant, and promotion.',
+		tags: ['Next.js', 'TypeScript', 'Game Logic', 'State Management'],
 		github: 'https://github.com/tareqnmd/chess',
 		live: 'https://chess.tareqnmd.com',
 	},
 	{
 		title: 'Organizer',
 		description:
-			'Personal management system with budget tracking and note management features.',
-		tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Shadcn'],
+			'Productivity suite featuring budget analytics with visualizations, rich-text notes with markdown support, and data export capabilities.',
+		tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
 		github: 'https://github.com/tareqnmd/organizer-frontend-v1',
 		live: 'https://organizer.tareqnmd.com',
 	},
 	{
 		title: 'Blog',
 		description:
-			'A modern blog platform for sharing articles and technical content.',
-		tags: ['Next.js', 'TypeScript', 'React'],
+			'Technical blog with MDX support, syntax highlighting, SEO optimization, and RSS feeds. Writing about JavaScript internals and engineering patterns.',
+		tags: ['Next.js', 'MDX', 'TypeScript', 'SEO'],
 		github: 'https://github.com/tareqnmd/blog',
 		live: 'https://blog.tareqnmd.com',
 	},

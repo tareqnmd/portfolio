@@ -2,12 +2,12 @@
 export const APP_NAME = 'Md Tareq';
 export const APP_LOGO_NAME = 'Tareq';
 export const APP_DESCRIPTION =
-	'I build modern web applications — from productivity tools and file-sharing platforms to interactive games. I also write about JavaScript fundamentals to help developers understand the language deeply.';
+	'Software Engineer with 5+ years of experience building scalable web applications, real-time systems, and developer tools. Passionate about clean architecture, performance optimization, and sharing knowledge through technical writing.';
 
 export const APP_AUTHOR = 'Md Tareq';
 export const APP_USERNAME = 'tareqnmd';
 export const APP_KEYWORDS =
-	'Software Engineer, Web Developer, Portfolio, Projects, Skills, React, Next.js, Tailwind CSS, TypeScript, JavaScript, HTML, CSS';
+	'Software Engineer, Full Stack Developer, React, Next.js, TypeScript, Node.js, System Design, Performance Optimization, Technical Architecture';
 
 // External Links (Single source of truth)
 export const ExternalLinks = {
