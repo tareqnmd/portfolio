@@ -7,15 +7,15 @@ import IconLink from '../../components/IconLink.astro';
 import Icon from '../../components/icons/index.astro';
 import { PROJECTS } from '../../lib';
 
-const delayClasses = ['animate-delay-100', 'animate-delay-200', 'animate-delay-300'];
+const delayClasses = ['animate-delay-100', 'animate-delay-200'];
 ---
 
 <Section id="projects" label="Projects section">
 	<SectionHeader title="Projects" subtitle="Selected work and side projects" />
 	
-	<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+	<div class="grid md:grid-cols-2 gap-5">
 		{PROJECTS.map((project, index) => (
-			<Card as="article" class:list={["animate-on-scroll flex flex-col gap-3", delayClasses[index % 3]]}>
+			<Card as="article" class:list={["animate-on-scroll flex flex-col gap-3", delayClasses[index % 2]]}>
 				<div class="flex items-start justify-between">
 					<h3 class="font-medium text-foreground">{project.title}</h3>
 					<div class="flex gap-2">

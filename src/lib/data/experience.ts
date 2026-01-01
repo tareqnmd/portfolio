@@ -1,58 +1,108 @@
 export type ExperienceType = 'work' | 'education';
 
-export interface Experience {
-	type: ExperienceType;
+export interface Role {
 	title: string;
-	organization: string;
-	location?: string;
 	startDate: string;
 	endDate: string;
 	description: string;
-	highlights?: readonly string[];
+	points?: readonly string[];
+}
+
+export interface Experience {
+	type: ExperienceType;
+	organization: string;
+	location?: string;
+	roles: readonly Role[];
 }
 
 export const EXPERIENCES: readonly Experience[] = [
 	{
 		type: 'work',
-		title: 'Software Engineer',
-		organization: 'Tech Company',
-		location: 'San Francisco, CA',
-		startDate: '2022',
-		endDate: 'Present',
-		description: 'Building scalable web applications and leading frontend architecture.',
-		highlights: [
-			'Led development of microservices architecture',
-			'Improved application performance by 40%',
-			'Mentored junior developers',
+		organization: 'Astha IT',
+		location: 'Dhaka, Bangladesh',
+		roles: [
+			{
+				title: 'Software Engineer III',
+				startDate: '2024',
+				endDate: 'Present',
+				description:
+					'Developing complex applications with modern architecture patterns.',
+				points: [
+					'Built Chess2 - an advanced chess platform with real-time multiplayer',
+					'Developed Docomate AI - intelligent document processing system',
+					'Architected scalable frontend solutions using Next.js and TypeScript',
+				],
+			},
 		],
 	},
 	{
 		type: 'work',
-		title: 'Frontend Developer',
-		organization: 'Another Tech Company',
-		location: 'New York, NY',
-		startDate: '2021',
-		endDate: '2022',
-		description: 'Developed user interfaces and improved application performance.',
-		highlights: [
-			'Built responsive web applications using React',
-			'Implemented CI/CD pipelines',
-			'Collaborated with design team on UI/UX',
+		organization: 'Apsis Solutions Ltd.',
+		location: 'Dhaka, Bangladesh',
+		roles: [
+			{
+				title: 'Software Engineer',
+				startDate: '2021',
+				endDate: '2024',
+				description:
+					'Developing front-end of an ERP system with Next.js and collaborating with product teams.',
+				points: [
+					'Developed front-end of ERP systems with Next.js',
+					'Implemented high-quality, scalable, and reusable code',
+					'Optimized applications for maximum speed and scalability',
+					'Collaborated with product team on new feature developments',
+				],
+			},
 		],
 	},
 	{
-		type: 'education',
-		title: 'Bachelor of Science in Computer Science',
-		organization: 'University',
-		location: 'Boston, MA',
-		startDate: '2017',
-		endDate: '2021',
-		description: "Bachelor's degree with focus on software engineering and web development.",
-		highlights: [
-			'GPA: 3.8/4.0',
-			'Dean\'s List all semesters',
-			'Senior project: E-commerce platform',
+		type: 'work',
+		organization: 'Alesha Solutions Ltd.',
+		location: 'Dhaka, Bangladesh',
+		roles: [
+			{
+				title: 'Frontend Developer',
+				startDate: '2021',
+				endDate: '2021',
+				description:
+					'Managed website development projects from initial design through completion.',
+				points: [
+					'Implemented websites, mobile apps, and landing pages from concept to deployment',
+					'Ensured technical feasibility of UI/UX designs',
+					'Standardized output with responsive, mobile-first approach',
+					'Maintained brand consistency throughout designs',
+				],
+			},
+		],
+	},
+	{
+		type: 'work',
+		organization: 'Antopolis',
+		location: 'Dhaka, Bangladesh',
+		roles: [
+			{
+				title: 'Frontend Developer',
+				startDate: '2020',
+				endDate: '2021',
+				description: 'Designed and maintained corporate and client websites.',
+				points: [
+					'Worked closely with programmers and clients to meet project requirements',
+					'Optimized web pages for maximum speed and scalability',
+					'Assessed UX and UI designs for technical feasibility',
+				],
+			},
+			{
+				title: 'Intern',
+				startDate: '2020',
+				endDate: '2020',
+				description:
+					'Started career learning frontend development fundamentals.',
+				points: [
+					'Learned modern web development practices',
+					'Assisted in building UI components',
+					'Gained hands-on experience with HTML, CSS, and JavaScript',
+				],
+			},
 		],
 	},
 ] as const;
-

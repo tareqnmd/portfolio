@@ -13,28 +13,42 @@ const delayClasses = ['animate-delay-100', 'animate-delay-200'];
 	
 	<div class="grid md:grid-cols-2 gap-5">
 		{BLOGS.map((blog, index) => (
-			<Card as="article" class:list={["animate-on-scroll group flex flex-col gap-3", delayClasses[index % 2]]}>
-				<div class="flex items-center gap-3 text-sm text-muted">
-					<span>{blog.date}</span>
-					<span>•</span>
-					<span>{blog.readTime}</span>
-				</div>
-				<h3 class="font-medium text-foreground group-hover:text-primary transition-colors">
-					{blog.title}
-				</h3>
-				<p class="text-sm text-muted flex-grow">
-					{blog.excerpt}
-				</p>
-				<a 
-					href={ExternalLinks.BLOG}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="inline-flex items-center gap-2 text-sm text-primary font-medium group/link self-start"
-				>
-					Read more 
-					<Icon name="arrow-right" size={12} class="transition-transform group-hover/link:translate-x-1" />
-				</a>
-			</Card>
+			<a 
+				href={blog.url}
+				target="_blank"
+				rel="noopener noreferrer"
+				class:list={["animate-on-scroll group block", delayClasses[index % 2]]}
+			>
+				<Card as="article" class="flex flex-col gap-3 h-full">
+					<div class="flex items-center gap-3 text-sm text-muted">
+						<span>{blog.date}</span>
+						<span>•</span>
+						<span>{blog.readTime}</span>
+					</div>
+					<h3 class="font-medium text-foreground group-hover:text-primary transition-colors">
+						{blog.title}
+					</h3>
+					<p class="text-sm text-muted flex-grow">
+						{blog.excerpt}
+					</p>
+					<span class="inline-flex items-center gap-2 text-sm text-primary font-medium self-start">
+						Read more 
+						<Icon name="arrow-right" size={12} class="transition-transform group-hover:translate-x-1" />
+					</span>
+				</Card>
+			</a>
 		))}
+	</div>
+	
+	<div class="flex justify-center mt-8">
+		<a 
+			href={ExternalLinks.BLOG}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="btn-secondary inline-flex items-center gap-2"
+		>
+			View All Blogs
+			<Icon name="arrow-right" size={16} />
+		</a>
 	</div>
 </Section>

@@ -3,32 +3,40 @@ export interface Blog {
 	excerpt: string;
 	date: string;
 	readTime: string;
+	url: string;
 }
 
 export const BLOGS: readonly Blog[] = [
 	{
-		title: 'Building Scalable React Applications with Next.js 14',
-		excerpt: 'Learn how to structure your Next.js projects for maximum scalability and maintainability.',
-		date: 'Dec 15, 2025',
-		readTime: '8 min',
+		title: 'Immediately Invoked Function Expressions (IIFE)',
+		excerpt:
+			'IIFE is a technique where we create a function and execute it immediately in one step, instead of defining it first and then calling it separately.',
+		date: 'Dec 27, 2025',
+		readTime: '2 min',
+		url: 'https://blog.tareqnmd.com/blogs/immediately-invoked-function-expressions-iife',
 	},
 	{
-		title: 'The Complete Guide to TypeScript Generics',
-		excerpt: 'Deep dive into TypeScript generics with practical examples for better type safety.',
-		date: 'Dec 10, 2025',
-		readTime: '12 min',
+		title: 'A Story of Closures in JavaScript',
+		excerpt:
+			'In JavaScript, a function can always remember values from the place where it was created — even after that outer code has finished running.',
+		date: 'Dec 22, 2025',
+		readTime: '3 min',
+		url: 'https://blog.tareqnmd.com/blogs/a-story-of-closures-in-javascript',
 	},
 	{
-		title: 'Modern CSS Techniques for 2025',
-		excerpt: 'Explore modern CSS features like Container Queries, CSS Grid, and new color functions.',
-		date: 'Dec 5, 2025',
-		readTime: '6 min',
+		title: 'What is Hoisting in JavaScript?',
+		excerpt:
+			"Hoisting is one of JavaScript's most interesting behaviors. JavaScript processes your code in two main phases: Creation Phase and Execution Phase.",
+		date: 'Dec 16, 2025',
+		readTime: '3 min',
+		url: 'https://blog.tareqnmd.com/blogs/what-is-hoisting-in-javascript',
 	},
 	{
-		title: 'Building REST APIs with Node.js',
-		excerpt: 'A comprehensive guide to building robust and secure REST APIs using Node.js and Express.',
-		date: 'Nov 28, 2025',
-		readTime: '10 min',
+		title: 'Scope in JavaScript',
+		excerpt:
+			'Scope is the area where variables and functions can be accessed in your code. Think of it as the "reach" of your variables.',
+		date: 'Dec 14, 2025',
+		readTime: '2 min',
+		url: 'https://blog.tareqnmd.com/blogs/scope-in-javascript',
 	},
 ] as const;
-
