@@ -1,5 +1,6 @@
 // App Metadata
 export const APP_NAME = 'Md Tareq';
+export const APP_LOGO_NAME = 'Tareq';
 export const APP_DESCRIPTION =
 	'I build modern web applications — from productivity tools and file-sharing platforms to interactive games. I also write about JavaScript fundamentals to help developers understand the language deeply.';
 

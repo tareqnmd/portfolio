@@ -14,6 +14,7 @@
 	--primary: #10b981;
 	--border: #27272a;
 	--font-family: 'Poppins', sans-serif;
+	--font-logo: 'Caveat', cursive;
 }
 
 @theme {
@@ -164,6 +165,11 @@ body {
 .nav-link:hover,
 .nav-link.active {
 	color: var(--foreground);
+}
+
+/* Logo */
+.logo-text {
+	font-family: var(--font-logo);
 }
 
 /* Header */
