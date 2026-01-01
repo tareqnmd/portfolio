@@ -84,7 +84,7 @@ const structuredData = {
 		<meta name="twitter:image" content={`${APP_AUTHOR_WEBSITE}/assets/tareq.webp`} />
 		<meta name="twitter:image:alt" content={`${APP_NAME} - Software Engineer`} />
 
-		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
 		{isProduction && hasAnalytics && (
 			<>
