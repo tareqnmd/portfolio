@@ -17,6 +17,22 @@ import '../styles/global.css';
 const isProduction = import.meta.env.PROD;
 const hasAnalytics = GOOGLE_ANALYTICS_ID && !GOOGLE_ANALYTICS_ID.includes('XXXXXXXXXX');
 const hasVerification = GOOGLE_SITE_VERIFICATION && GOOGLE_SITE_VERIFICATION !== 'your-verification-code';
+
+// Structured Data (JSON-LD) for SEO
+const structuredData = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	"name": APP_AUTHOR,
+	"url": APP_AUTHOR_WEBSITE,
+	"image": `${APP_AUTHOR_WEBSITE}/assets/tareq.webp`,
+	"jobTitle": "Software Engineer",
+	"description": APP_DESCRIPTION,
+	"sameAs": [
+		"https://github.com/tareqnmd",
+		"https://linkedin.com/in/tareqnmd",
+		"https://twitter.com/tareqnmd"
+	]
+};
 ---
 
 <!doctype html>
@@ -59,18 +75,27 @@ const hasVerification = GOOGLE_SITE_VERIFICATION && GOOGLE_SITE_VERIFICATION !==
 
 		<!-- Open Graph -->
 		<meta property="og:type" content="website" />
-		<meta property="og:title" content={APP_NAME} />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:title" content={`${APP_NAME} | Software Engineer`} />
 		<meta property="og:description" content={APP_DESCRIPTION} />
 		<meta property="og:url" content={APP_AUTHOR_WEBSITE} />
 		<meta property="og:image" content={`${APP_AUTHOR_WEBSITE}/assets/tareq.webp`} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content={`${APP_NAME} - Software Engineer`} />
 		<meta property="og:site_name" content={APP_NAME} />
 
 		<!-- Twitter Card -->
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content={APP_NAME} />
+		<meta name="twitter:site" content={`@${APP_USERNAME}`} />
+		<meta name="twitter:creator" content={`@${APP_USERNAME}`} />
+		<meta name="twitter:title" content={`${APP_NAME} | Software Engineer`} />
 		<meta name="twitter:description" content={APP_DESCRIPTION} />
 		<meta name="twitter:image" content={`${APP_AUTHOR_WEBSITE}/assets/tareq.webp`} />
-		<meta name="twitter:creator" content={`@${APP_USERNAME}`} />
+		<meta name="twitter:image:alt" content={`${APP_NAME} - Software Engineer`} />
+
+		<!-- Structured Data (JSON-LD) -->
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
 		<!-- Google Analytics 4 (only in production) -->
 		{isProduction && hasAnalytics && (
