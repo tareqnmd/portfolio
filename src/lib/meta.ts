@@ -1,4 +1,3 @@
-// App Metadata
 export const APP_NAME = 'Md Tareq';
 export const APP_LOGO_NAME = 'Tareq';
 export const APP_DESCRIPTION =
@@ -9,7 +8,6 @@ export const APP_USERNAME = 'tareqnmd';
 export const APP_KEYWORDS =
 	'Software Engineer, Full Stack Developer, React, Next.js, TypeScript, Node.js, System Design, Performance Optimization, Technical Architecture';
 
-// External Links (Single source of truth)
 export const ExternalLinks = {
 	WEBSITE: 'https://tareqnmd.com',
 	BLOG: 'https://blog.tareqnmd.com',
@@ -19,12 +17,9 @@ export const ExternalLinks = {
 	EMAIL: 'tareqnmd@gmail.com',
 } as const;
 
-// Google Analytics & Search Console
-// Replace with your actual IDs from Google
-export const GOOGLE_ANALYTICS_ID = 'G-XXXXXXXXXX'; // Get from: https://analytics.google.com
-export const GOOGLE_SITE_VERIFICATION = 'your-verification-code'; // Get from: https://search.google.com/search-console
+export const GOOGLE_ANALYTICS_ID = 'G-XXXXXXXXXX';
+export const GOOGLE_SITE_VERIFICATION = 'your-verification-code';
 
-// Derived exports for backward compatibility
 export const APP_AUTHOR_EMAIL = ExternalLinks.EMAIL;
 export const APP_AUTHOR_WEBSITE = ExternalLinks.WEBSITE;
 export const APP_AUTHOR_TWITTER = ExternalLinks.TWITTER;

@@ -18,7 +18,6 @@ const isProduction = import.meta.env.PROD;
 const hasAnalytics = GOOGLE_ANALYTICS_ID && !GOOGLE_ANALYTICS_ID.includes('XXXXXXXXXX');
 const hasVerification = GOOGLE_SITE_VERIFICATION && GOOGLE_SITE_VERIFICATION !== 'your-verification-code';
 
-// Structured Data (JSON-LD) for SEO
 const structuredData = {
 	"@context": "https://schema.org",
 	"@type": "Person",
@@ -36,10 +35,7 @@ const structuredData = {
 ---
 
 <!doctype html>
-<html
-	lang="en"
-	dir="ltr"
->
+<html lang="en" dir="ltr">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -51,29 +47,24 @@ const structuredData = {
 		<meta name="robots" content="index, follow" />
 		<link rel="canonical" href={APP_AUTHOR_WEBSITE} />
 
-		<!-- Google Search Console Verification -->
 		{hasVerification && (
 			<meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
 		)}
 
-		<!-- Favicons -->
 		<link rel="icon" type="image/x-icon" href="/meta/favicon.ico" />
 		<link rel="icon" type="image/png" sizes="16x16" href="/meta/favicon-16x16.png" />
 		<link rel="icon" type="image/png" sizes="32x32" href="/meta/favicon-32x32.png" />
 		<link rel="apple-touch-icon" sizes="180x180" href="/meta/apple-touch-icon.png" />
 
-		<!-- PWA / Android -->
 		<link rel="icon" type="image/png" sizes="192x192" href="/meta/android-chrome-192x192.png" />
 		<link rel="icon" type="image/png" sizes="512x512" href="/meta/android-chrome-512x512.png" />
 		<link rel="manifest" href="/site.webmanifest" />
 		<meta name="theme-color" content="#0f0f0f" />
 
-		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Poppins:wght@300;400;500;600;700&display=swap" />
 
-		<!-- Open Graph -->
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content="en_US" />
 		<meta property="og:title" content={`${APP_NAME} | Software Engineer`} />
@@ -85,7 +76,6 @@ const structuredData = {
 		<meta property="og:image:alt" content={`${APP_NAME} - Software Engineer`} />
 		<meta property="og:site_name" content={APP_NAME} />
 
-		<!-- Twitter Card -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:site" content={`@${APP_USERNAME}`} />
 		<meta name="twitter:creator" content={`@${APP_USERNAME}`} />
@@ -94,10 +84,8 @@ const structuredData = {
 		<meta name="twitter:image" content={`${APP_AUTHOR_WEBSITE}/assets/tareq.webp`} />
 		<meta name="twitter:image:alt" content={`${APP_NAME} - Software Engineer`} />
 
-		<!-- Structured Data (JSON-LD) -->
 		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
-		<!-- Google Analytics 4 (only in production) -->
 		{isProduction && hasAnalytics && (
 			<>
 				<script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}></script>
@@ -110,19 +98,11 @@ const structuredData = {
 			</>
 		)}
 
-		<!-- Client Router for SPA-like navigation -->
 		<ClientRouter />
 	</head>
-	<body
-		id={APP_USERNAME}
-		class="min-h-screen w-full"
-	>
+	<body id={APP_USERNAME} class="min-h-screen w-full">
 		<Header />
-		<main
-			id="main-content"
-			role="main"
-			class="flex flex-col"
-		>
+		<main id="main-content" role="main" class="flex flex-col">
 			<slot />
 		</main>
 		<Footer />

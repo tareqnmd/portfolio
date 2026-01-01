@@ -38,7 +38,6 @@ body {
 	line-height: 1.6;
 }
 
-/* Section styles */
 .section-title {
 	font-size: 2rem;
 	font-weight: 600;
@@ -50,7 +49,6 @@ body {
 	color: var(--foreground-muted);
 }
 
-/* Smooth scroll-triggered animations */
 .animate-on-scroll {
 	opacity: 0;
 	transform: translateY(20px);
@@ -81,7 +79,6 @@ body {
 	transition-delay: 0.3s;
 }
 
-/* Card styles */
 .card {
 	background: var(--background-secondary);
 	border: 1px solid var(--border);
@@ -94,7 +91,6 @@ body {
 	transform: translateY(-2px);
 }
 
-/* Button styles */
 .btn-primary {
 	display: inline-flex;
 	align-items: center;
@@ -136,7 +132,6 @@ body {
 	background: rgba(16, 185, 129, 0.1);
 }
 
-/* Social link styles */
 .social-link {
 	display: flex;
 	align-items: center;
@@ -153,7 +148,6 @@ body {
 	border-color: var(--primary);
 }
 
-/* Navigation */
 .nav-link {
 	position: relative;
 	color: var(--foreground-muted);
@@ -167,12 +161,10 @@ body {
 	color: var(--foreground);
 }
 
-/* Logo */
 .logo-text {
 	font-family: var(--font-logo);
 }
 
-/* Header */
 header {
 	position: fixed;
 	top: 0;
@@ -188,7 +180,6 @@ main {
 	padding-top: 72px;
 }
 
-/* Tech tag */
 .tech-tag {
 	display: inline-block;
 	padding: 0.25rem 0.625rem;
@@ -206,7 +197,6 @@ main {
 	border-color: var(--primary);
 }
 
-/* Skill bar */
 .skill-bar-bg {
 	height: 6px;
 	background: var(--background);
@@ -226,7 +216,6 @@ main {
 	width: var(--target-width);
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
 	width: 6px;
 }
@@ -244,13 +233,11 @@ main {
 	background: var(--foreground-muted);
 }
 
-/* Selection */
 ::selection {
 	background: var(--primary);
 	color: white;
 }
 
-/* Focus states */
 a:focus-visible,
 button:focus-visible {
 	outline: 2px solid var(--primary);
