@@ -1,6 +1,7 @@
 ---
 import { APP_LOGO_NAME, NAV_LINKS } from '../lib';
 import HeaderSidebar from './HeaderSidebar.astro';
+import Logo from './Logo.astro';
 ---
 
 <header
@@ -10,11 +11,11 @@ import HeaderSidebar from './HeaderSidebar.astro';
 >
 	<div class="container mx-auto px-4 flex justify-between items-center h-[72px]">
 		<a
-			class="logo-text text-3xl text-foreground hover:text-primary transition-colors"
+			class="logo-link"
 			href="#home"
 			aria-label="Home"
 		>
-			{APP_LOGO_NAME}
+			<Logo/>
 		</a>
 		<nav
 			class="nav hidden md:block"
