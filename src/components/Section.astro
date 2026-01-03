@@ -8,13 +8,8 @@ interface Props {
 const { id, label, class: className } = Astro.props;
 ---
 
-<section
-	id={id}
-	class:list={["section", className]}
-	aria-label={label}
->
+<section id={id} class:list={['section', className]} aria-label={label}>
 	<div class="container mx-auto flex flex-col gap-12">
 		<slot />
 	</div>
 </section>
-

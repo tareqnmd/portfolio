@@ -9,4 +9,3 @@ export const NAV_LINKS: readonly NavLink[] = [
 	{ name: 'Projects', href: '#projects' },
 	{ name: 'Blog', href: '#blogs' },
 ] as const;
-

@@ -10,4 +10,3 @@ export const ABOUT_CONTENT: AboutContent = {
 		"I believe in engineering fundamentals — clean architecture, type safety, and thoughtful abstractions. When I'm not shipping features, I write about JavaScript internals because understanding the 'why' behind the code makes the difference between a good engineer and a great one.",
 	],
 } as const;
-

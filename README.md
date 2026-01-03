@@ -42,12 +42,12 @@ A modern, performant portfolio website built with Astro and Tailwind CSS.
 
 ## 🧞 Commands
 
-| Command        | Action                                      |
-| :------------- | :------------------------------------------ |
-| `yarn install` | Install dependencies                        |
-| `yarn dev`     | Start dev server at `localhost:4321`        |
-| `yarn build`   | Build production site to `./dist/`          |
-| `yarn preview` | Preview production build locally            |
+| Command        | Action                               |
+| :------------- | :----------------------------------- |
+| `yarn install` | Install dependencies                 |
+| `yarn dev`     | Start dev server at `localhost:4321` |
+| `yarn build`   | Build production site to `./dist/`   |
+| `yarn preview` | Preview production build locally     |
 
 ## 📝 License
 

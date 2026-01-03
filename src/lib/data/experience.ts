@@ -44,8 +44,7 @@ export const EXPERIENCES: readonly Experience[] = [
 				title: 'Software Engineer',
 				startDate: '2021',
 				endDate: '2024',
-				description:
-					'Core engineer on enterprise ERP platform serving 500+ daily active users.',
+				description: 'Core engineer on enterprise ERP platform serving 500+ daily active users.',
 				points: [
 					'Designed and implemented modular architecture for ERP system, reducing feature development time by 35%',
 					'Built reusable component library used across 15+ internal products',
@@ -64,8 +63,7 @@ export const EXPERIENCES: readonly Experience[] = [
 				title: 'Software Engineer',
 				startDate: '2021',
 				endDate: '2021',
-				description:
-					'Delivered end-to-end web solutions for diverse client projects.',
+				description: 'Delivered end-to-end web solutions for diverse client projects.',
 				points: [
 					'Shipped 8+ production applications including e-commerce platforms and corporate websites',
 					'Reduced development cycles by implementing reusable templates and automation',

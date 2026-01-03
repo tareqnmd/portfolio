@@ -6,22 +6,16 @@ interface Props {
 	class?: string;
 }
 
-const { 
-	href, 
-	label,
-	external = false,
-	class: className
-} = Astro.props;
+const { href, label, external = false, class: className } = Astro.props;
 
 const externalProps = external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
 ---
 
-<a 
+<a
 	href={href}
-	class:list={["text-foreground-muted hover:text-foreground transition-colors", className]}
+	class:list={['text-foreground-muted hover:text-foreground transition-colors', className]}
 	aria-label={label}
 	{...externalProps}
 >
 	<slot />
 </a>
-

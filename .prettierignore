@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+yarn.lock
+package-lock.json
+
+# Build outputs
+dist/
+.astro/
+
+# Cache
+.cache/
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Public assets (may contain minified/generated files)
+public/assets/
+
+# Files with special inline scripts that Prettier can't parse
+src/layouts/Layout.astro
+
