@@ -32,6 +32,13 @@ import Logo from './Logo.astro';
 </header>
 
 <script>
+	function addNavHeight() {
+		document.documentElement.style.setProperty(
+			'--nav-height',
+			`${document.querySelector('.header')?.clientHeight}px`
+		);
+	}
+
 	function initHeader() {
 		// Smooth scroll for anchor links
 		document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach(anchor => {
@@ -83,7 +90,9 @@ import Logo from './Logo.astro';
 
 	// Run on initial load
 	initHeader();
+	addNavHeight();
 
 	// Re-run after View Transitions navigation
 	document.addEventListener('astro:after-swap', initHeader);
+	document.addEventListener('astro:after-swap', addNavHeight);
 </script>

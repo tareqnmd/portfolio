@@ -1,10 +1,11 @@
 ---
+import Section from '@/components/Section.astro';
 import Icon from '../../components/icons/index.astro';
 import SocialLinks from '../../components/SocialLinks.astro';
 import { APP_AUTHOR, APP_DESCRIPTION } from '../../lib';
 ---
 
-<section id="home" class="min-h-screen flex items-center" aria-label="Hero section">
+<Section id="home" label="Hero section" class="flex items-center">
 	<div class="container mx-auto">
 		<div class="max-w-2xl flex flex-col gap-4">
 			<p class="animate-on-scroll text-primary text-sm font-medium">Software Engineer</p>
@@ -29,4 +30,4 @@ import { APP_AUTHOR, APP_DESCRIPTION } from '../../lib';
 			<Icon name="chevron-down" size={16} class="animate-bounce" />
 		</a>
 	</div>
-</section>
+</Section>

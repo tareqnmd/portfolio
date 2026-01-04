@@ -48,6 +48,12 @@ body {
 	color: var(--foreground-muted);
 }
 
+.content-section {
+	padding-top: var(--nav-height);
+	padding-bottom: var(--nav-height);
+	min-height: calc(100dvh - var(--nav-height));
+}
+
 .animate-on-scroll {
 	opacity: 0;
 	transform: translateY(20px);
