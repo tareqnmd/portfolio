@@ -28,18 +28,22 @@ const sizeClasses: Record<NonNullable<Props['size']>, { container: string; icon:
 };
 ---
 
-<div class:list={['flex gap-3', className]}>
-	{
-		socialLinks.map(social => (
-			<a
-				href={social.url}
-				target="_blank"
-				rel="noopener noreferrer"
-				class:list={['social-link', sizeClasses[size].container]}
-				aria-label={social.name}
-			>
-				<Icon name={social.icon} size={sizeClasses[size].icon} />
-			</a>
-		))
-	}
-</div>
+<nav aria-label="Social links" class:list={[className]}>
+	<ul class="flex gap-3 list-none p-0 m-0">
+		{
+			socialLinks.map(social => (
+				<li>
+					<a
+						href={social.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						class:list={['social-link', sizeClasses[size].container]}
+						aria-label={social.name}
+					>
+						<Icon name={social.icon} size={sizeClasses[size].icon} />
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</nav>
