@@ -47,7 +47,7 @@ export const EXPERIENCES: readonly Experience[] = [
 				description: 'Core engineer on enterprise ERP platform serving 500+ daily active users.',
 				points: [
 					'Designed and implemented modular architecture for ERP system, reducing feature development time by 35%',
-					'Built reusable component library used across 15+ internal products',
+					'Built reusable component library used across 5+ internal products',
 					'Optimized critical rendering paths, achieving 60% improvement in page load times',
 					'Mentored junior developers and led technical discussions on architecture decisions',
 				],
@@ -65,7 +65,7 @@ export const EXPERIENCES: readonly Experience[] = [
 				endDate: '2021',
 				description: 'Delivered end-to-end web solutions for diverse client projects.',
 				points: [
-					'Shipped 8+ production applications including e-commerce platforms and corporate websites',
+					'Shipped 4+ production applications including e-commerce platforms and corporate websites',
 					'Reduced development cycles by implementing reusable templates and automation',
 					'Collaborated directly with clients to translate business requirements into technical solutions',
 				],
