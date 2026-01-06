@@ -88,6 +88,16 @@ export const EXPERIENCES: readonly Experience[] = [
 					'Collaborated with cross-functional teams to deliver projects on tight deadlines',
 				],
 			},
+			{
+				title: 'Intern',
+				startDate: '2020',
+				endDate: '2020',
+				description: 'Learned the basics of web development.',
+				points: [
+					'Learned the basics of web development and how to use the tools and technologies used in the industry.',
+					'Worked on a project to develop a web application.',
+				],
+			},
 		],
 	},
 ] as const;
