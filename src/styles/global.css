@@ -37,6 +37,17 @@ body {
 	line-height: 1.6;
 }
 
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
+	background: rgba(15, 15, 15, 0.8);
+	backdrop-filter: blur(12px);
+	border-bottom: 1px solid var(--border);
+}
+
 .section-title {
 	font-size: 2rem;
 	font-weight: 600;
@@ -49,9 +60,9 @@ body {
 }
 
 .content-section {
-	padding-top: var(--nav-height);
-	padding-bottom: var(--nav-height);
-	min-height: calc(100svh - var(--nav-height));
+	padding-top: calc(var(--nav-height) + 3rem);
+	padding-bottom: 3rem;
+	min-height: 100svh;
 	display: grid;
 	place-items: center;
 }
@@ -172,21 +183,6 @@ body {
 .nav-link:hover,
 .nav-link.active {
 	color: var(--foreground);
-}
-
-header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 100;
-	background: rgba(15, 15, 15, 0.8);
-	backdrop-filter: blur(12px);
-	border-bottom: 1px solid var(--border);
-}
-
-main {
-	padding-top: 72px;
 }
 
 .tech-tag {
