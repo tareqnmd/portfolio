@@ -9,7 +9,7 @@ const { id, label, class: className } = Astro.props;
 ---
 
 <section id={id} class:list={['section content-section', className]} aria-label={label}>
-	<div class="container mx-auto flex flex-col gap-12">
+	<div class="container mx-auto flex flex-col gap-6 md:gap-8 lg:gap-12">
 		<slot />
 	</div>
 </section>
