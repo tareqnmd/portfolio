@@ -13,36 +13,38 @@ const delayClasses = ['animate-delay-100', 'animate-delay-200'];
 <Section id="projects" label="Projects section">
 	<SectionHeader title="Projects" subtitle="Selected work and side projects" />
 
-	<div class="grid md:grid-cols-2 gap-5">
+	<ul class="grid md:grid-cols-2 gap-5 list-none p-0 m-0">
 		{
 			PROJECTS.map((project, index) => (
-				<Card
-					as="article"
-					class:list={['animate-on-scroll flex flex-col gap-3', delayClasses[index % 2]]}
-				>
-					<div class="flex items-start justify-between">
-						<h3 class="font-medium text-foreground">{project.title}</h3>
-						<div class="flex gap-2">
-							<IconLink
-								href={project.github}
-								label={`GitHub repository for ${project.title}`}
-								external
-							>
-								<Icon name="github" size={18} />
-							</IconLink>
-							<IconLink href={project.live} label={`Live demo for ${project.title}`} external>
-								<Icon name="external-link" size={14} />
-							</IconLink>
+				<li>
+					<Card
+						as="article"
+						class:list={['animate-on-scroll flex flex-col gap-3', delayClasses[index % 2]]}
+					>
+						<div class="flex items-start justify-between">
+							<h3 class="font-medium text-foreground">{project.title}</h3>
+							<div class="flex gap-2">
+								<IconLink
+									href={project.github}
+									label={`GitHub repository for ${project.title}`}
+									external
+								>
+									<Icon name="github" size={18} />
+								</IconLink>
+								<IconLink href={project.live} label={`Live demo for ${project.title}`} external>
+									<Icon name="external-link" size={14} />
+								</IconLink>
+							</div>
 						</div>
-					</div>
-					<p class="text-sm text-muted flex-grow">{project.description}</p>
-					<div class="flex flex-wrap gap-2">
-						{project.tags.map(tag => (
-							<Tag>{tag}</Tag>
-						))}
-					</div>
-				</Card>
+						<p class="text-sm text-muted flex-grow">{project.description}</p>
+						<div class="flex flex-wrap gap-2">
+							{project.tags.map(tag => (
+								<Tag>{tag}</Tag>
+							))}
+						</div>
+					</Card>
+				</li>
 			))
 		}
-	</div>
+	</ul>
 </Section>

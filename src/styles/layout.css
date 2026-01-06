@@ -1,4 +1,4 @@
-header {
+header.header {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -21,9 +21,24 @@ header {
 }
 
 .content-section {
-	padding-top: calc(var(--nav-height) + 3rem);
-	padding-bottom: 3rem;
+	padding-top: calc(var(--nav-height) + 2rem);
+	padding-bottom: 2rem;
 	min-height: 100svh;
 	display: grid;
 	place-items: center;
+}
+
+@media (min-width: 768px) {
+	.section-title {
+		font-size: 2.5rem;
+	}
+
+	.section-subtitle {
+		font-size: 1.125rem;
+	}
+
+	.content-section {
+		padding-top: calc(var(--nav-height) + 3rem);
+		padding-bottom: 3rem;
+	}
 }
