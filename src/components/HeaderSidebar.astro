@@ -33,8 +33,11 @@ import { NAV_LINKS } from '../lib';
 						<li>
 							<a
 								href={link.href}
-								class="block py-3 text-muted hover:text-foreground transition-colors"
+								class="flex items-center gap-3 py-3 text-muted hover:text-foreground transition-colors"
 							>
+								<span class="h-9 w-9 rounded-lg border border-border/80 bg-background-secondary text-primary grid place-items-center">
+									<Icon name={link.icon} size={16} />
+								</span>
 								{link.name}
 							</a>
 						</li>

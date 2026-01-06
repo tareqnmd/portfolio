@@ -1,5 +1,6 @@
 ---
 import { NAV_LINKS } from '../lib';
+import Icon from './icons/index.astro';
 import HeaderSidebar from './HeaderSidebar.astro';
 import Logo from './Logo.astro';
 ---
@@ -15,11 +16,12 @@ import Logo from './Logo.astro';
 					NAV_LINKS.map(link => (
 						<li>
 							<a
-								class="nav-link"
+								class="nav-link inline-flex items-center gap-2"
 								href={link.href}
 								aria-label={`${link.name} section`}
 								data-section={link.href.replace('#', '')}
 							>
+								<Icon name={link.icon} size={16} class="text-muted" />
 								{link.name}
 							</a>
 						</li>

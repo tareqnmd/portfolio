@@ -1,4 +1,5 @@
 ---
+import type { IconName } from '../../lib/icons';
 import GithubIcon from './GithubIcon.astro';
 import LinkedinIcon from './LinkedinIcon.astro';
 import TwitterIcon from './TwitterIcon.astro';
@@ -10,27 +11,20 @@ import XIcon from './XIcon.astro';
 import BriefcaseIcon from './BriefcaseIcon.astro';
 import GraduationCapIcon from './GraduationCapIcon.astro';
 import ArrowRightIcon from './ArrowRightIcon.astro';
+import HomeIcon from './HomeIcon.astro';
+import UserIcon from './UserIcon.astro';
+import FolderIcon from './FolderIcon.astro';
+import PenIcon from './PenIcon.astro';
 
 export interface Props {
-	name:
-		| 'github'
-		| 'linkedin'
-		| 'twitter'
-		| 'envelope'
-		| 'external-link'
-		| 'chevron-down'
-		| 'menu'
-		| 'x'
-		| 'briefcase'
-		| 'graduation-cap'
-		| 'arrow-right';
+	name: IconName;
 	class?: string;
 	size?: number;
 }
 
 const { name, class: className, size = 20 } = Astro.props as Props;
 
-const icons: Record<Props['name'], any> = {
+const icons: Record<IconName, any> = {
 	github: GithubIcon,
 	linkedin: LinkedinIcon,
 	twitter: TwitterIcon,
@@ -42,6 +36,10 @@ const icons: Record<Props['name'], any> = {
 	briefcase: BriefcaseIcon,
 	'graduation-cap': GraduationCapIcon,
 	'arrow-right': ArrowRightIcon,
+	home: HomeIcon,
+	user: UserIcon,
+	folder: FolderIcon,
+	pen: PenIcon,
 };
 
 const IconComponent = icons[name];
