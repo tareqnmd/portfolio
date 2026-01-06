@@ -40,9 +40,7 @@ import BlogsSection from '../modules/blogs/BlogsSection.astro';
 		});
 	}
 
-	// Run on initial load
 	initAnimations();
 
-	// Re-run after View Transitions navigation
 	document.addEventListener('astro:after-swap', initAnimations);
 </script>

@@ -15,14 +15,11 @@ const delayClasses = ['animate-delay-100', 'animate-delay-200', 'animate-delay-3
 			EXPERIENCES.map((exp, index) => (
 				<li class:list={['animate-on-scroll group', delayClasses[index] || 'animate-delay-100']}>
 					<article class="relative rounded-xl bg-background-secondary/30 border border-border/50 hover:border-primary/30 transition-all duration-300 overflow-hidden">
-						{/* Background glow */}
 						<div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
 						<div class="relative flex flex-col lg:flex-row">
-							{/* Left: Company & Roles Timeline */}
 							<section class="lg:w-2/5 p-6 lg:border-r border-border/30">
-								{/* Company Header */}
-								<header class="flex items-start gap-3 mb-4">
+								<header class="flex items-start gap-3 lg:mb-4">
 									<div class="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
 										<Icon
 											name={exp.type === 'work' ? 'briefcase' : 'graduation-cap'}
@@ -38,14 +35,11 @@ const delayClasses = ['animate-delay-100', 'animate-delay-200', 'animate-delay-3
 									</div>
 								</header>
 
-								{/* Roles Timeline */}
 								<ol class="relative ml-5 pl-6 border-l border-border/50 list-none max-lg:hidden">
 									{exp.roles.map((role, roleIndex) => (
 										<li class:list={['relative pb-4 last:pb-0', roleIndex > 0 ? 'pt-4' : '']}>
-											{/* Timeline dot */}
 											<div class="absolute -left-6 top-0 w-3 h-3 rounded-full bg-primary ring-4 ring-background-secondary/30 -translate-x-1/2" />
 
-											{/* Role info */}
 											<div class="flex flex-col">
 												<span class="text-xs font-mono text-primary mb-1">
 													{role.startDate} — {role.endDate}
@@ -57,8 +51,7 @@ const delayClasses = ['animate-delay-100', 'animate-delay-200', 'animate-delay-3
 								</ol>
 							</section>
 
-							{/* Right: Role Details with Points */}
-							<section class="lg:w-3/5 p-6 bg-background/30">
+							<section class="lg:w-3/5 p-6 pt-0 bg-background/30">
 								<div class="flex flex-col gap-6">
 									{exp.roles.map((role, roleIndex) => (
 										<article
@@ -67,7 +60,6 @@ const delayClasses = ['animate-delay-100', 'animate-delay-200', 'animate-delay-3
 												roleIndex > 0 ? 'pt-6 border-t border-border/30' : '',
 											]}
 										>
-											{/* Role header for mobile */}
 											<header class="flex flex-col gap-2 mb-2 lg:hidden">
 												<span class="text-xs font-mono text-primary">
 													{role.startDate} — {role.endDate}
@@ -75,15 +67,12 @@ const delayClasses = ['animate-delay-100', 'animate-delay-200', 'animate-delay-3
 												<span class="text-sm font-medium text-foreground">{role.title}</span>
 											</header>
 
-											{/* Role title for desktop */}
 											<header class="hidden lg:block mb-2">
 												<span class="text-sm font-semibold text-foreground">{role.title}</span>
 											</header>
 
-											{/* Description */}
 											<p class="text-sm text-muted leading-relaxed mb-3">{role.description}</p>
 
-											{/* Points/Highlights */}
 											{role.points && role.points.length > 0 && (
 												<ul class="space-y-1.5">
 													{role.points.map(point => (

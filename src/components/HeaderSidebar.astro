@@ -73,9 +73,7 @@ import { NAV_LINKS } from '../lib';
 		});
 	}
 
-	// Run on initial load
 	initSidebar();
 
-	// Re-run after View Transitions navigation
 	document.addEventListener('astro:after-swap', initSidebar);
 </script>
