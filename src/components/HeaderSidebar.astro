@@ -28,7 +28,7 @@ import Logo from './Logo.astro';
 	</div>
 	<div
 		data-sidebar-panel
-		class="relative h-full px-4 flex flex-col gap-6 translate-y-4 opacity-0 scale-[0.98] transition-all duration-300 ease-out bg-background/70 backdrop-blur-2xl border-l border-white/5 shadow-[0_20px_80px_rgba(0,0,0,0.45)]"
+		class="relative h-full px-4 flex flex-col gap-6 translate-x-full opacity-0 transition-all duration-300 ease-out bg-background/70 backdrop-blur-2xl border-l border-white/5 shadow-[0_20px_80px_rgba(0,0,0,0.45)]"
 	>
 		<div class="flex items-center justify-between h-[72px]">
 			<Logo />
@@ -72,12 +72,14 @@ import Logo from './Logo.astro';
 
 <script>
 	function initSidebar() {
+		const sidebar = document.getElementById('sidebar');
+		if (!sidebar || sidebar.dataset.initialized === 'true') return;
+
 		const openBtn = document.getElementById('open-sidebar');
 		const closeBtn = document.getElementById('close-sidebar');
-		const sidebar = document.getElementById('sidebar');
-		const links = sidebar?.querySelectorAll('a');
-		const overlay = sidebar?.querySelector('[data-sidebar-overlay]');
-		const panel = sidebar?.querySelector('[data-sidebar-panel]');
+		const links = sidebar.querySelectorAll('a');
+		const overlay = sidebar.querySelector('[data-sidebar-overlay]');
+		const panel = sidebar.querySelector('[data-sidebar-panel]');
 
 		function openSidebar() {
 			sidebar?.classList.remove('translate-x-full');
@@ -86,8 +88,8 @@ import Logo from './Logo.astro';
 			openBtn?.setAttribute('aria-expanded', 'true');
 			overlay?.classList.remove('opacity-0');
 			overlay?.classList.add('opacity-100');
-			panel?.classList.remove('translate-y-4', 'opacity-0');
-			panel?.classList.add('translate-y-0', 'opacity-100');
+			panel?.classList.remove('translate-x-full', 'opacity-0');
+			panel?.classList.add('translate-x-0', 'opacity-100');
 			document.body.style.overflow = 'hidden';
 		}
 
@@ -98,8 +100,8 @@ import Logo from './Logo.astro';
 			openBtn?.setAttribute('aria-expanded', 'false');
 			overlay?.classList.add('opacity-0');
 			overlay?.classList.remove('opacity-100');
-			panel?.classList.add('translate-y-4', 'opacity-0');
-			panel?.classList.remove('translate-y-0', 'opacity-100');
+			panel?.classList.add('translate-x-full', 'opacity-0');
+			panel?.classList.remove('translate-x-0', 'opacity-100');
 			document.body.style.overflow = '';
 		}
 
@@ -111,6 +113,8 @@ import Logo from './Logo.astro';
 		document.addEventListener('keydown', e => {
 			if (e.key === 'Escape') closeSidebar();
 		});
+
+		sidebar.dataset.initialized = 'true';
 	}
 
 	initSidebar();
