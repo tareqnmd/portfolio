@@ -1,0 +1,36 @@
+@utility container {
+	padding: 0 1rem;
+	margin: 0 auto;
+	max-width: 1200px;
+}
+
+:root {
+	--background: #0f0f0f;
+	--background-secondary: #171717;
+	--foreground: #fafafa;
+	--foreground-muted: #a1a1aa;
+	--primary: #10b981;
+	--border: #27272a;
+	--font-family: 'Poppins', sans-serif;
+}
+
+@theme {
+	--color-background: var(--background);
+	--color-background-secondary: var(--background-secondary);
+	--color-foreground: var(--foreground);
+	--color-primary: var(--primary);
+	--color-muted: var(--foreground-muted);
+	--color-border: var(--border);
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background: var(--background);
+	color: var(--foreground);
+	font-family: var(--font-family);
+	overflow-x: hidden;
+	line-height: 1.6;
+}

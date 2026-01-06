@@ -1,0 +1,29 @@
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
+	background: rgba(15, 15, 15, 0.8);
+	backdrop-filter: blur(12px);
+	border-bottom: 1px solid var(--border);
+}
+
+.section-title {
+	font-size: 2rem;
+	font-weight: 600;
+	color: var(--foreground);
+}
+
+.section-subtitle {
+	font-size: 1rem;
+	color: var(--foreground-muted);
+}
+
+.content-section {
+	padding-top: calc(var(--nav-height) + 3rem);
+	padding-bottom: 3rem;
+	min-height: 100svh;
+	display: grid;
+	place-items: center;
+}
