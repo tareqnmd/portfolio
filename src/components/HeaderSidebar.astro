@@ -2,44 +2,66 @@
 import Icon from './icons/index.astro';
 import { NAV_LINKS } from '../lib';
 import { IconName } from '@/lib/icons';
+import Logo from './Logo.astro';
 ---
 
 <button
 	id="open-sidebar"
 	aria-label="Open menu"
-	class="md:hidden text-muted hover:text-foreground transition-colors p-2"
+	class="md:hidden inline-flex items-center gap-2 text-muted hover:text-foreground transition-colors px-3 py-2 rounded-lg border border-border/70 bg-background/70 backdrop-blur shadow-sm"
 >
 	<Icon name={IconName.MENU} size={20} />
+	<span class="text-sm font-medium">Menu</span>
 </button>
 
 <aside
 	id="sidebar"
-	class="fixed top-0 left-0 w-full h-screen bg-background z-50 md:hidden transform translate-x-full transition-transform duration-200"
+	role="dialog"
+	aria-modal="true"
+	aria-hidden="true"
+	class="fixed top-0 left-0 w-full h-screen z-50 md:hidden transform translate-x-full transition-transform duration-200"
 	transition:persist
 >
-	<div class="px-6 h-full">
-		<div class="flex justify-end h-[72px] items-center">
+	<div
+		data-sidebar-overlay
+		class="absolute inset-0 bg-gradient-to-br from-black/60 via-background/75 to-background/90 backdrop-blur-md opacity-0 transition-opacity duration-200"
+	>
+	</div>
+	<div
+		data-sidebar-panel
+		class="relative h-full px-6 py-6 flex flex-col gap-6 translate-y-6 opacity-0 transition-all duration-200 bg-background/70 backdrop-blur-2xl border-l border-white/5 shadow-[0_20px_80px_rgba(0,0,0,0.45)]"
+	>
+		<div class="flex items-center justify-between h-[72px]">
+			<Logo />
 			<button
 				id="close-sidebar"
-				class="text-muted hover:text-foreground transition-colors p-2"
+				class="text-muted hover:text-foreground transition-colors p-2 rounded-full border border-border/70 bg-background/70"
 				aria-label="Close menu"
 			>
 				<Icon name={IconName.X} size={20} />
 			</button>
 		</div>
 		<nav aria-label="Mobile navigation">
-			<ul class="space-y-1">
+			<ul class="space-y-3">
 				{
 					NAV_LINKS.map(link => (
 						<li class="leading-0">
 							<a
 								href={link.href}
-								class="flex items-center gap-3 py-3 text-muted hover:text-foreground transition-colors"
+								class="group flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-lg px-4 py-3 hover:border-primary/60 hover:bg-primary/10 transition-all duration-200"
 							>
-								<span class="h-9 w-9 rounded-lg border border-border/80 bg-background-secondary text-primary grid place-items-center">
-									<Icon name={link.icon} size={16} />
+								<div class="flex items-center gap-3">
+									<span class="h-10 w-10 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 text-primary">
+										<Icon name={link.icon} size={18} />
+									</span>
+									<div class="text-left">
+										<p class="text-foreground font-semibold text-sm">{link.name}</p>
+										<p class="text-sm text-muted">Go to the {link.name.toLowerCase()} section</p>
+									</div>
+								</div>
+								<span class="h-9 w-9 flex items-center justify-center rounded-full border border-border/60 text-muted group-hover:border-primary/60 group-hover:text-primary transition-colors">
+									<Icon name={IconName.ARROW_RIGHT} size={18} />
 								</span>
-								{link.name}
 							</a>
 						</li>
 					))
@@ -55,22 +77,37 @@ import { IconName } from '@/lib/icons';
 		const closeBtn = document.getElementById('close-sidebar');
 		const sidebar = document.getElementById('sidebar');
 		const links = sidebar?.querySelectorAll('a');
+		const overlay = sidebar?.querySelector('[data-sidebar-overlay]');
+		const panel = sidebar?.querySelector('[data-sidebar-panel]');
 
 		function openSidebar() {
 			sidebar?.classList.remove('translate-x-full');
 			sidebar?.classList.add('translate-x-0');
+			sidebar?.setAttribute('aria-hidden', 'false');
+			openBtn?.setAttribute('aria-expanded', 'true');
+			overlay?.classList.remove('opacity-0');
+			overlay?.classList.add('opacity-100');
+			panel?.classList.remove('translate-y-6', 'opacity-0');
+			panel?.classList.add('translate-y-0', 'opacity-100');
 			document.body.style.overflow = 'hidden';
 		}
 
 		function closeSidebar() {
 			sidebar?.classList.remove('translate-x-0');
 			sidebar?.classList.add('translate-x-full');
+			sidebar?.setAttribute('aria-hidden', 'true');
+			openBtn?.setAttribute('aria-expanded', 'false');
+			overlay?.classList.add('opacity-0');
+			overlay?.classList.remove('opacity-100');
+			panel?.classList.add('translate-y-6', 'opacity-0');
+			panel?.classList.remove('translate-y-0', 'opacity-100');
 			document.body.style.overflow = '';
 		}
 
 		openBtn?.addEventListener('click', openSidebar);
 		closeBtn?.addEventListener('click', closeSidebar);
 		links?.forEach(link => link.addEventListener('click', closeSidebar));
+		overlay?.addEventListener('click', closeSidebar);
 
 		document.addEventListener('keydown', e => {
 			if (e.key === 'Escape') closeSidebar();
