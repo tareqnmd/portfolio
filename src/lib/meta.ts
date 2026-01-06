@@ -17,8 +17,8 @@ export const ExternalLinks = {
 	EMAIL: 'tareqnmd@gmail.com',
 } as const;
 
-export const GOOGLE_ANALYTICS_ID = 'G-XXXXXXXXXX';
-export const GOOGLE_SITE_VERIFICATION = 'your-verification-code';
+export const GOOGLE_ANALYTICS_ID = 'G-99B6K42XZG';
+export const GOOGLE_SITE_VERIFICATION = 'gbYLrQzzftZr2FEqOyI7h-mXjZsrBR24XdCThbou59Y';
 
 export const APP_AUTHOR_EMAIL = ExternalLinks.EMAIL;
 export const APP_AUTHOR_WEBSITE = ExternalLinks.WEBSITE;

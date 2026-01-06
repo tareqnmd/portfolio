@@ -15,8 +15,6 @@ import {
 import '../styles/global.css';
 
 const isProduction = import.meta.env.PROD;
-const hasAnalytics = GOOGLE_ANALYTICS_ID && !GOOGLE_ANALYTICS_ID.includes('XXXXXXXXXX');
-const hasVerification = GOOGLE_SITE_VERIFICATION && GOOGLE_SITE_VERIFICATION !== 'your-verification-code';
 
 const structuredData = {
 	"@context": "https://schema.org",
@@ -47,9 +45,6 @@ const structuredData = {
 		<meta name="robots" content="index, follow" />
 		<link rel="canonical" href={APP_AUTHOR_WEBSITE} />
 
-		{hasVerification && (
-			<meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
-		)}
 
 		<link rel="icon" type="image/x-icon" href="/meta/favicon.ico" />
 		<link rel="icon" type="image/png" sizes="16x16" href="/meta/favicon-16x16.png" />
@@ -64,7 +59,8 @@ const structuredData = {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" />
-
+		
+		<meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content="en_US" />
 		<meta property="og:title" content={`${APP_NAME} | Software Engineer`} />
@@ -86,7 +82,7 @@ const structuredData = {
 
 		<script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
-		{isProduction && hasAnalytics && (
+		{isProduction  && (
 			<>
 				<script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}></script>
 				<script is:inline define:vars={{ GOOGLE_ANALYTICS_ID }}>
