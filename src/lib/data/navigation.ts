@@ -11,5 +11,5 @@ export const NAV_LINKS: readonly NavLink[] = [
 	{ name: 'About', href: '#about', icon: IconName.USER },
 	{ name: 'Experience', href: '#experience', icon: IconName.BRIEFCASE },
 	{ name: 'Projects', href: '#projects', icon: IconName.FOLDER },
-	{ name: 'Blog', href: '#blogs', icon: IconName.PEN },
+	{ name: 'Blog', href: '#blogs', icon: IconName.DOCUMENT },
 ] as const;

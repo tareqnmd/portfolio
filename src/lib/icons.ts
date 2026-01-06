@@ -14,6 +14,7 @@ export enum IconName {
 	USER = 'user',
 	FOLDER = 'folder',
 	PEN = 'pen',
+	DOCUMENT = 'document',
 }
 
 export type IconNameValue = `${IconName}`;

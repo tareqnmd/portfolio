@@ -3,6 +3,7 @@ import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
 import { IconName } from '../../lib/icons';
 
 import ArrowRightIcon from './ArrowRightIcon.astro';
+import BookmarkIcon from './BookmarkIcon.astro';
 import BriefcaseIcon from './BriefcaseIcon.astro';
 import ChevronDownIcon from './ChevronDownIcon.astro';
 import EnvelopeIcon from './EnvelopeIcon.astro';
@@ -14,6 +15,7 @@ import HomeIcon from './HomeIcon.astro';
 import LinkedinIcon from './LinkedinIcon.astro';
 import MenuIcon from './MenuIcon.astro';
 import PenIcon from './PenIcon.astro';
+import DocumentIcon from './DocumentIcon.astro';
 import TwitterIcon from './TwitterIcon.astro';
 import UserIcon from './UserIcon.astro';
 import XIcon from './XIcon.astro';
@@ -42,6 +44,7 @@ const icons: Record<IconName, AstroComponentFactory> = {
 	[IconName.USER]: UserIcon,
 	[IconName.FOLDER]: FolderIcon,
 	[IconName.PEN]: PenIcon,
+	[IconName.DOCUMENT]: DocumentIcon,
 };
 
 const IconComponent = icons[name];
