@@ -1,11 +1,12 @@
 ---
-import Icon from './icons/index.astro';
+import { IconName } from '@/lib/icons';
 import {
 	APP_AUTHOR_EMAIL,
 	APP_AUTHOR_GITHUB,
 	APP_AUTHOR_LINKEDIN,
 	APP_AUTHOR_TWITTER,
 } from '../lib';
+import Icon from './icons/index.astro';
 
 interface Props {
 	class?: string;
@@ -15,10 +16,10 @@ interface Props {
 const { class: className, size = 'md' } = Astro.props;
 
 const socialLinks = [
-	{ name: 'GitHub', icon: 'github' as const, url: APP_AUTHOR_GITHUB },
-	{ name: 'LinkedIn', icon: 'linkedin' as const, url: APP_AUTHOR_LINKEDIN },
-	{ name: 'Twitter', icon: 'twitter' as const, url: APP_AUTHOR_TWITTER },
-	{ name: 'Email', icon: 'envelope' as const, url: `mailto:${APP_AUTHOR_EMAIL}` },
+	{ name: 'GitHub', icon: IconName.GITHUB, url: APP_AUTHOR_GITHUB },
+	{ name: 'LinkedIn', icon: IconName.LINKEDIN, url: APP_AUTHOR_LINKEDIN },
+	{ name: 'Twitter', icon: IconName.TWITTER, url: APP_AUTHOR_TWITTER },
+	{ name: 'Email', icon: IconName.ENVELOPE, url: `mailto:${APP_AUTHOR_EMAIL}` },
 ];
 
 const sizeClasses: Record<NonNullable<Props['size']>, { container: string; icon: number }> = {

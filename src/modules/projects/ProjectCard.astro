@@ -4,6 +4,7 @@ import IconLink from '@/components/IconLink.astro';
 import Icon from '@/components/icons/index.astro';
 import Tag from '@/components/Tag.astro';
 import type { Project } from '@/lib';
+import { IconName } from '@/lib/icons';
 
 interface Props {
 	project: Project;
@@ -19,10 +20,10 @@ const { project, delayClass = 'animate-delay-100' } = Astro.props;
 			<h3 class="font-medium text-foreground">{project.title}</h3>
 			<div class="flex gap-2">
 				<IconLink href={project.github} label={`GitHub repository for ${project.title}`} external>
-					<Icon name="github" size={18} />
+					<Icon name={IconName.GITHUB} size={18} />
 				</IconLink>
 				<IconLink href={project.live} label={`Live demo for ${project.title}`} external>
-					<Icon name="external-link" size={14} />
+					<Icon name={IconName.EXTERNAL_LINK} size={14} />
 				</IconLink>
 			</div>
 		</div>

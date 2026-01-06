@@ -1,9 +1,10 @@
 ---
-import Section from '../../components/Section.astro';
-import SectionHeader from '../../components/SectionHeader.astro';
+import { IconName } from '@/lib/icons';
 import Button from '../../components/Button.astro';
 import Icon from '../../components/icons/index.astro';
-import { APP_AUTHOR_EMAIL, ABOUT_CONTENT } from '../../lib';
+import Section from '../../components/Section.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import { ABOUT_CONTENT, APP_AUTHOR_EMAIL } from '../../lib';
 
 const delayClasses = [
 	'animate-delay-100',
@@ -34,7 +35,7 @@ const delayClasses = [
 			href={`mailto:${APP_AUTHOR_EMAIL}`}
 			class="animate-on-scroll animate-delay-300 self-start"
 		>
-			<Icon name="envelope" size={16} />
+			<Icon name={IconName.ENVELOPE} size={16} />
 			Get In Touch
 		</Button>
 	</div>

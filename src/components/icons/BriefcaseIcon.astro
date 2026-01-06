@@ -9,10 +9,13 @@ const { class: className, size = 20 } = Astro.props as IconProps;
 	width={size}
 	height={size}
 	viewBox="0 0 24 24"
-	fill="currentColor"
+	fill="none"
+	stroke="currentColor"
+	stroke-width="2"
+	stroke-linecap="round"
+	stroke-linejoin="round"
 	class={className}
 >
-	<path
-		d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"
-	></path>
+	<path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"></path>
+	<path d="M16 5V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v1"></path>
 </svg>

@@ -1,20 +1,22 @@
 ---
-import type { IconName } from '../../lib/icons';
-import GithubIcon from './GithubIcon.astro';
-import LinkedinIcon from './LinkedinIcon.astro';
-import TwitterIcon from './TwitterIcon.astro';
+import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
+import { IconName } from '../../lib/icons';
+
+import ArrowRightIcon from './ArrowRightIcon.astro';
+import BriefcaseIcon from './BriefcaseIcon.astro';
+import ChevronDownIcon from './ChevronDownIcon.astro';
 import EnvelopeIcon from './EnvelopeIcon.astro';
 import ExternalLinkIcon from './ExternalLinkIcon.astro';
-import ChevronDownIcon from './ChevronDownIcon.astro';
-import MenuIcon from './MenuIcon.astro';
-import XIcon from './XIcon.astro';
-import BriefcaseIcon from './BriefcaseIcon.astro';
-import GraduationCapIcon from './GraduationCapIcon.astro';
-import ArrowRightIcon from './ArrowRightIcon.astro';
-import HomeIcon from './HomeIcon.astro';
-import UserIcon from './UserIcon.astro';
 import FolderIcon from './FolderIcon.astro';
+import GithubIcon from './GithubIcon.astro';
+import GraduationCapIcon from './GraduationCapIcon.astro';
+import HomeIcon from './HomeIcon.astro';
+import LinkedinIcon from './LinkedinIcon.astro';
+import MenuIcon from './MenuIcon.astro';
 import PenIcon from './PenIcon.astro';
+import TwitterIcon from './TwitterIcon.astro';
+import UserIcon from './UserIcon.astro';
+import XIcon from './XIcon.astro';
 
 export interface Props {
 	name: IconName;
@@ -22,24 +24,24 @@ export interface Props {
 	size?: number;
 }
 
-const { name, class: className, size = 20 } = Astro.props as Props;
+const { name, class: className, size = 20 } = Astro.props;
 
-const icons: Record<IconName, any> = {
-	github: GithubIcon,
-	linkedin: LinkedinIcon,
-	twitter: TwitterIcon,
-	envelope: EnvelopeIcon,
-	'external-link': ExternalLinkIcon,
-	'chevron-down': ChevronDownIcon,
-	menu: MenuIcon,
-	x: XIcon,
-	briefcase: BriefcaseIcon,
-	'graduation-cap': GraduationCapIcon,
-	'arrow-right': ArrowRightIcon,
-	home: HomeIcon,
-	user: UserIcon,
-	folder: FolderIcon,
-	pen: PenIcon,
+const icons: Record<IconName, AstroComponentFactory> = {
+	[IconName.GITHUB]: GithubIcon,
+	[IconName.LINKEDIN]: LinkedinIcon,
+	[IconName.TWITTER]: TwitterIcon,
+	[IconName.ENVELOPE]: EnvelopeIcon,
+	[IconName.EXTERNAL_LINK]: ExternalLinkIcon,
+	[IconName.CHEVRON_DOWN]: ChevronDownIcon,
+	[IconName.MENU]: MenuIcon,
+	[IconName.X]: XIcon,
+	[IconName.BRIEFCASE]: BriefcaseIcon,
+	[IconName.GRADUATION_CAP]: GraduationCapIcon,
+	[IconName.ARROW_RIGHT]: ArrowRightIcon,
+	[IconName.HOME]: HomeIcon,
+	[IconName.USER]: UserIcon,
+	[IconName.FOLDER]: FolderIcon,
+	[IconName.PEN]: PenIcon,
 };
 
 const IconComponent = icons[name];

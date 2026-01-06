@@ -2,6 +2,7 @@
 import Card from '@/components/Card.astro';
 import Icon from '@/components/icons/index.astro';
 import type { Blog } from '@/lib';
+import { IconName } from '@/lib/icons';
 
 interface Props {
 	blog: Blog;
@@ -30,7 +31,11 @@ const { blog, delayClass = 'animate-delay-100' } = Astro.props;
 			<p class="text-sm text-muted flex-grow">{blog.excerpt}</p>
 			<span class="inline-flex items-center gap-2 text-sm text-primary font-medium self-start">
 				Read more
-				<Icon name="arrow-right" size={12} class="transition-transform group-hover:translate-x-1" />
+				<Icon
+					name={IconName.ARROW_RIGHT}
+					size={12}
+					class="transition-transform group-hover:translate-x-1"
+				/>
 			</span>
 		</Card>
 	</a>

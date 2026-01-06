@@ -1,6 +1,7 @@
 ---
 import Icon from './icons/index.astro';
 import { NAV_LINKS } from '../lib';
+import { IconName } from '@/lib/icons';
 ---
 
 <button
@@ -8,7 +9,7 @@ import { NAV_LINKS } from '../lib';
 	aria-label="Open menu"
 	class="md:hidden text-muted hover:text-foreground transition-colors p-2"
 >
-	<Icon name="menu" size={20} />
+	<Icon name={IconName.MENU} size={20} />
 </button>
 
 <aside
@@ -23,14 +24,14 @@ import { NAV_LINKS } from '../lib';
 				class="text-muted hover:text-foreground transition-colors p-2"
 				aria-label="Close menu"
 			>
-				<Icon name="x" size={20} />
+				<Icon name={IconName.X} size={20} />
 			</button>
 		</div>
 		<nav aria-label="Mobile navigation">
 			<ul class="space-y-1">
 				{
 					NAV_LINKS.map(link => (
-						<li>
+						<li class="leading-0">
 							<a
 								href={link.href}
 								class="flex items-center gap-3 py-3 text-muted hover:text-foreground transition-colors"
