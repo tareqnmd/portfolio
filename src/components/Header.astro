@@ -49,10 +49,7 @@ import Logo from './Logo.astro';
 
 				const target = document.querySelector(href);
 				if (target) {
-					const headerHeight = document.querySelector('.header')?.clientHeight || 0;
-					const targetPosition =
-						target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-
+					const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
 					window.scrollTo({
 						top: targetPosition,
 						behavior: 'smooth',
