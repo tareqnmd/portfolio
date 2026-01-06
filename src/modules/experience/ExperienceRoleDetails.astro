@@ -1,0 +1,43 @@
+---
+import type { Experience } from '@/lib';
+
+interface Props {
+	experience: Experience;
+}
+
+const { experience } = Astro.props;
+---
+
+<section class="lg:w-3/5 p-6 bg-background/30">
+	<div class="flex flex-col gap-6">
+		{
+			experience.roles.map((role, roleIndex) => (
+				<article class:list={['relative', roleIndex > 0 ? 'pt-6 border-t border-border/30' : '']}>
+					<header class="flex flex-col gap-2 mb-2 lg:hidden">
+						<span class="text-xs font-mono text-primary">
+							{role.startDate} — {role.endDate}
+						</span>
+						<span class="text-sm font-medium text-foreground">{role.title}</span>
+					</header>
+
+					<header class="hidden lg:block mb-2">
+						<span class="text-sm font-semibold text-foreground">{role.title}</span>
+					</header>
+
+					<p class="text-sm text-muted leading-relaxed mb-3">{role.description}</p>
+
+					{role.points && role.points.length > 0 && (
+						<ul class="space-y-1.5">
+							{role.points.map(point => (
+								<li class="text-sm text-muted flex items-start gap-2">
+									<span class="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
+									<span>{point}</span>
+								</li>
+							))}
+						</ul>
+					)}
+				</article>
+			))
+		}
+	</div>
+</section>

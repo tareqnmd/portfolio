@@ -1,0 +1,37 @@
+---
+import Card from '@/components/Card.astro';
+import Icon from '@/components/icons/index.astro';
+import type { Blog } from '@/lib';
+
+interface Props {
+	blog: Blog;
+	delayClass?: string;
+}
+
+const { blog, delayClass = 'animate-delay-100' } = Astro.props;
+---
+
+<li>
+	<a
+		href={blog.url}
+		target="_blank"
+		rel="noopener noreferrer"
+		class:list={['animate-on-scroll group block', delayClass]}
+	>
+		<Card as="article" class="flex flex-col gap-3 h-full">
+			<div class="flex items-center gap-3 text-sm text-muted">
+				<span>{blog.date}</span>
+				<span>•</span>
+				<span>{blog.readTime}</span>
+			</div>
+			<h3 class="font-medium text-foreground group-hover:text-primary transition-colors">
+				{blog.title}
+			</h3>
+			<p class="text-sm text-muted flex-grow">{blog.excerpt}</p>
+			<span class="inline-flex items-center gap-2 text-sm text-primary font-medium self-start">
+				Read more
+				<Icon name="arrow-right" size={12} class="transition-transform group-hover:translate-x-1" />
+			</span>
+		</Card>
+	</a>
+</li>

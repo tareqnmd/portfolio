@@ -1,0 +1,20 @@
+---
+import Section from '@/components/Section.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
+import { EXPERIENCES } from '@/lib';
+import ExperienceItem from './ExperienceItem.astro';
+
+const delayClasses = ['animate-delay-100', 'animate-delay-200', 'animate-delay-300'];
+---
+
+<Section id="experience" label="Experience section">
+	<SectionHeader title="Experience" subtitle="My professional journey" />
+
+	<ul class="flex flex-col gap-8 list-none p-0 m-0">
+		{
+			EXPERIENCES.map((exp, index) => (
+				<ExperienceItem experience={exp} delayClass={delayClasses[index] || 'animate-delay-100'} />
+			))
+		}
+	</ul>
+</Section>

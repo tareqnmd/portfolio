@@ -1,0 +1,28 @@
+---
+import type { Experience } from '@/lib';
+import ExperienceRoleDetails from './ExperienceRoleDetails.astro';
+import ExperienceTimeline from './ExperienceTimeline.astro';
+
+interface Props {
+	experience: Experience;
+	delayClass?: string;
+}
+
+const { experience, delayClass = 'animate-delay-100' } = Astro.props;
+---
+
+<li class:list={['animate-on-scroll group', delayClass]}>
+	<article
+		class="relative rounded-xl bg-background-secondary/30 border border-border/50 hover:border-primary/30 transition-all duration-300 overflow-hidden"
+	>
+		<div
+			class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+		>
+		</div>
+
+		<div class="relative flex flex-col lg:flex-row">
+			<ExperienceTimeline experience={experience} />
+			<ExperienceRoleDetails experience={experience} />
+		</div>
+	</article>
+</li>
