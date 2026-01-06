@@ -39,7 +39,7 @@ const delayClasses = ['animate-delay-100', 'animate-delay-200', 'animate-delay-3
 								</header>
 
 								{/* Roles Timeline */}
-								<ol class="relative ml-5 pl-6 border-l border-border/50 list-none">
+								<ol class="relative ml-5 pl-6 border-l border-border/50 list-none max-lg:hidden">
 									{exp.roles.map((role, roleIndex) => (
 										<li class:list={['relative pb-4 last:pb-0', roleIndex > 0 ? 'pt-4' : '']}>
 											{/* Timeline dot */}
@@ -68,11 +68,10 @@ const delayClasses = ['animate-delay-100', 'animate-delay-200', 'animate-delay-3
 											]}
 										>
 											{/* Role header for mobile */}
-											<header class="flex items-center gap-2 mb-2 lg:hidden">
+											<header class="flex flex-col gap-2 mb-2 lg:hidden">
 												<span class="text-xs font-mono text-primary">
 													{role.startDate} — {role.endDate}
 												</span>
-												<span class="text-foreground/50">•</span>
 												<span class="text-sm font-medium text-foreground">{role.title}</span>
 											</header>
 
