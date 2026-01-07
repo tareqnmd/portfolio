@@ -1,6 +1,7 @@
 ---
 import Icon from '@/components/icons/index.astro';
 import type { Experience } from '@/lib';
+import { IconName } from '@/lib/icons';
 
 interface Props {
 	experience: Experience;
@@ -13,7 +14,7 @@ const { experience } = Astro.props;
 	<header class="flex items-start gap-3 mb-4">
 		<div class="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
 			<Icon
-				name={experience.type === 'work' ? 'briefcase' : 'graduation-cap'}
+				name={experience.type === 'work' ? IconName.BRIEFCASE : IconName.GRADUATION_CAP}
 				size={18}
 				class="text-primary"
 			/>
@@ -35,7 +36,9 @@ const { experience } = Astro.props;
 						<span class="text-xs font-mono text-primary mb-1">
 							{role.startDate} — {role.endDate}
 						</span>
-						<h4 class="text-sm font-medium text-foreground">{role.title}</h4>
+						<h4 class="text-sm font-medium text-foreground">
+							{role.title} at {experience.organization}
+						</h4>
 					</div>
 				</li>
 			))
