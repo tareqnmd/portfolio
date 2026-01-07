@@ -27,13 +27,23 @@ header.header {
 .content-section {
 	padding-top: 2rem;
 	padding-bottom: 2rem;
-	min-height: calc(100dvh - var(--nav-height));
+	min-height: calc(100vh - var(--nav-height));
 	display: grid;
 	place-items: center;
 }
 
 .content-section-full {
-	min-height: calc(100dvh - var(--nav-height) - var(--footer-height));
+	min-height: calc(100vh - var(--nav-height) - var(--footer-height));
+}
+
+@supports (height: 100svh) {
+	.content-section {
+		min-height: calc(100svh - var(--nav-height));
+	}
+
+	.content-section-full {
+		min-height: calc(100svh - var(--nav-height) - var(--footer-height));
+	}
 }
 
 @media (min-width: 768px) {
