@@ -27,13 +27,13 @@ header.header {
 .content-section {
 	padding-top: 2rem;
 	padding-bottom: 2rem;
-	min-height: calc(100vh - var(--nav-height));
+	min-height: calc(100dvh - var(--nav-height));
 	display: grid;
 	place-items: center;
 }
 
 .content-section-full {
-	min-height: calc(100vh - var(--nav-height) - var(--footer-height));
+	min-height: calc(100dvh - var(--nav-height) - var(--footer-height));
 }
 
 @media (min-width: 768px) {
