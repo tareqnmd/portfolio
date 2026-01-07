@@ -86,7 +86,7 @@ const canonicalUrl = new URL(Astro.url.pathname || '/', APP_AUTHOR_WEBSITE).toSt
 		<meta property="og:locale" content="en_US" />
 		<meta property="og:title" content={APP_PAGE_TITLE} />
 		<meta property="og:description" content={APP_DESCRIPTION} />
-		<meta property="og:url" content={APP_AUTHOR_WEBSITE} />
+		<meta property="og:url" content={canonicalUrl} />
 		<meta property="og:image" content={`${APP_AUTHOR_WEBSITE}/assets/tareq.webp`} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
@@ -100,6 +100,7 @@ const canonicalUrl = new URL(Astro.url.pathname || '/', APP_AUTHOR_WEBSITE).toSt
 		<meta name="twitter:description" content={APP_DESCRIPTION} />
 		<meta name="twitter:image" content={`${APP_AUTHOR_WEBSITE}/assets/tareq.webp`} />
 		<meta name="twitter:image:alt" content={`${APP_NAME} - Software Engineer`} />
+		<meta name="twitter:url" content={canonicalUrl} />
 
 		<script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
