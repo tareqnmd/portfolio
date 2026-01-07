@@ -8,6 +8,7 @@ import {
 	APP_DESCRIPTION,
 	APP_KEYWORDS,
 	APP_NAME,
+	APP_PAGE_TITLE,
 	APP_USERNAME,
 	GOOGLE_ANALYTICS_ID,
 	GOOGLE_SITE_VERIFICATION,
@@ -30,6 +31,8 @@ const structuredData = {
 		"https://twitter.com/tareqnmd"
 	]
 };
+
+const canonicalUrl = new URL(Astro.url.pathname || '/', APP_AUTHOR_WEBSITE).toString();
 ---
 
 <!doctype html>
@@ -38,12 +41,14 @@ const structuredData = {
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		
-		<title>{APP_NAME} | Software Engineer</title>
+		<title>{APP_PAGE_TITLE}</title>
+		<meta name="title" content={APP_PAGE_TITLE} />
+		<meta name="application-name" content={APP_NAME} />
 		<meta name="description" content={APP_DESCRIPTION} />
 		<meta name="author" content={APP_AUTHOR} />
 		<meta name="keywords" content={APP_KEYWORDS} />
 		<meta name="robots" content="index, follow" />
-		<link rel="canonical" href={APP_AUTHOR_WEBSITE} />
+		<link rel="canonical" href={canonicalUrl} />
 
 
 		<link rel="icon" type="image/x-icon" href="/meta/favicon.ico" />
@@ -58,12 +63,28 @@ const structuredData = {
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" />
+		<link
+			rel="preload"
+			as="style"
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+			media="print"
+			onload="this.media='all'"
+		/>
+		<noscript>
+			<link
+				rel="stylesheet"
+				href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+			/>
+		</noscript>
 		
 		<meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content="en_US" />
-		<meta property="og:title" content={`${APP_NAME} | Software Engineer`} />
+		<meta property="og:title" content={APP_PAGE_TITLE} />
 		<meta property="og:description" content={APP_DESCRIPTION} />
 		<meta property="og:url" content={APP_AUTHOR_WEBSITE} />
 		<meta property="og:image" content={`${APP_AUTHOR_WEBSITE}/assets/tareq.webp`} />
@@ -75,7 +96,7 @@ const structuredData = {
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:site" content={`@${APP_USERNAME}`} />
 		<meta name="twitter:creator" content={`@${APP_USERNAME}`} />
-		<meta name="twitter:title" content={`${APP_NAME} | Software Engineer`} />
+		<meta name="twitter:title" content={APP_PAGE_TITLE} />
 		<meta name="twitter:description" content={APP_DESCRIPTION} />
 		<meta name="twitter:image" content={`${APP_AUTHOR_WEBSITE}/assets/tareq.webp`} />
 		<meta name="twitter:image:alt" content={`${APP_NAME} - Software Engineer`} />

@@ -1,7 +1,8 @@
 export const APP_NAME = 'Md Tareq';
 export const APP_LOGO_NAME = 'Tareq';
 export const APP_DESCRIPTION =
-	'Software engineer building scalable web apps, real-time systems, and developer tools. Focused on clean architecture, performance tuning, and sharing what I learn.';
+	'TypeScript-first software engineer building scalable web apps, real-time systems, and developer tools. React/Node.js, clean architecture, performance tuning.';
+export const APP_PAGE_TITLE = `${APP_NAME} | Software Engineer, TypeScript & Node.js Developer`;
 
 export const APP_AUTHOR = 'Md Tareq';
 export const APP_USERNAME = 'tareqnmd';
