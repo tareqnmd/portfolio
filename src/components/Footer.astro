@@ -5,7 +5,7 @@ import SocialLinks from './SocialLinks.astro';
 const year = new Date().getFullYear();
 ---
 
-<footer role="contentinfo" aria-label="Footer" class="py-12 border-t border-border">
+<footer role="contentinfo" aria-label="Footer" class="py-12 border-t border-border footer">
 	<div class="container mx-auto">
 		<div class="flex justify-between items-center gap-8 max-md:flex-col">
 			<SocialLinks />
@@ -16,3 +16,16 @@ const year = new Date().getFullYear();
 		</div>
 	</div>
 </footer>
+
+<script>
+	function addFooterHeight() {
+		document.documentElement.style.setProperty(
+			'--footer-height',
+			`${document.querySelector('footer.footer')?.clientHeight}px`
+		);
+	}
+
+	addFooterHeight();
+
+	document.addEventListener('astro:after-swap', addFooterHeight);
+</script>

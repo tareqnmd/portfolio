@@ -32,6 +32,10 @@ header.header {
 	place-items: center;
 }
 
+.content-section-full {
+	min-height: calc(100vh - var(--nav-height) - var(--footer-height));
+}
+
 @media (min-width: 768px) {
 	.section-title {
 		font-size: 2.5rem;
