@@ -1,7 +1,7 @@
 export const APP_NAME = 'Md Tareq';
 export const APP_LOGO_NAME = 'Tareq';
 export const APP_DESCRIPTION =
-	'Software Engineer with 5+ years of experience building scalable web applications, real-time systems, and developer tools. Passionate about clean architecture, performance optimization, and sharing knowledge through technical writing.';
+	'Software engineer building scalable web apps, real-time systems, and developer tools. Focused on clean architecture, performance tuning, and sharing what I learn.';
 
 export const APP_AUTHOR = 'Md Tareq';
 export const APP_USERNAME = 'tareqnmd';
