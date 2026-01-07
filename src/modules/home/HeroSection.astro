@@ -1,9 +1,7 @@
 ---
-import Icon from '@/components/icons/index.astro';
 import Section from '@/components/Section.astro';
 import SocialLinks from '@/components/SocialLinks.astro';
 import { APP_AUTHOR, APP_DESCRIPTION } from '@/lib';
-import { IconName } from '@/lib/icons';
 ---
 
 <Section id="home" label="Hero section" class="flex items-center">
@@ -20,15 +18,5 @@ import { IconName } from '@/lib/icons';
 			</p>
 			<SocialLinks class="animate-on-scroll animate-delay-300 mt-4" size="md" />
 		</div>
-	</div>
-
-	<div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-on-scroll animate-delay-400">
-		<a
-			href="#about"
-			class="flex flex-col items-center gap-2 text-muted hover:text-foreground transition-colors text-sm"
-		>
-			<span>Scroll</span>
-			<Icon name={IconName.CHEVRON_DOWN} size={16} class="animate-bounce" />
-		</a>
 	</div>
 </Section>
