@@ -17,7 +17,7 @@ import Logo from './Logo.astro';
 						<li class="leading-0">
 							<a
 								class="nav-link inline-flex items-center gap-1.5"
-								href={link.href}
+								href={`/${link.href}`}
 								aria-label={`${link.name} section`}
 								data-section={link.href.replace('#', '')}
 							>
@@ -42,10 +42,10 @@ import Logo from './Logo.astro';
 	}
 
 	function initHeader() {
-		document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach(anchor => {
+		document.querySelectorAll<HTMLAnchorElement>('a[href *= "/#"]').forEach(anchor => {
 			anchor.addEventListener('click', e => {
 				e.preventDefault();
-				const href = anchor.getAttribute('href');
+				const href = anchor.getAttribute('href')?.replace('/', '');
 				if (!href) return;
 
 				const target = document.querySelector(href);
