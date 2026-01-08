@@ -34,8 +34,6 @@ import Logo from './Logo.astro';
 </header>
 
 <script>
-	let targetPosition: number | undefined;
-
 	function addNavHeight() {
 		document.documentElement.style.setProperty(
 			'--nav-height',
@@ -53,7 +51,8 @@ import Logo from './Logo.astro';
 				const target = document.querySelector(href);
 				if (target) {
 					const headerHeight = document.getElementById('app-header')?.clientHeight || 0;
-					targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+					const targetPosition =
+						target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
 					window.scrollTo({
 						top: targetPosition,
 						behavior: 'smooth',
