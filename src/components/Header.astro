@@ -42,7 +42,7 @@ import Logo from './Logo.astro';
 	}
 
 	function initHeader() {
-		document.querySelectorAll<HTMLAnchorElement>('a[href *= "/#"]').forEach(anchor => {
+		document.querySelectorAll<HTMLAnchorElement>('a[href^="/#"]').forEach(anchor => {
 			anchor.addEventListener('click', e => {
 				e.preventDefault();
 				const href = anchor.getAttribute('href')?.replace('/', '');
