@@ -5,7 +5,7 @@ import HeaderSidebar from './HeaderSidebar.astro';
 import Logo from './Logo.astro';
 ---
 
-<header class="header" role="banner" transition:persist>
+<header id="app-header" class="header" role="banner" transition:persist>
 	<div class="container mx-auto px-4 flex justify-between items-center h-[72px]">
 		<a class="logo-link" href="#home" aria-label="Home">
 			<Logo />
@@ -37,7 +37,7 @@ import Logo from './Logo.astro';
 	function addNavHeight() {
 		document.documentElement.style.setProperty(
 			'--nav-height',
-			`${document.querySelector('header.header')?.clientHeight}px`
+			`${document.getElementById('app-header')?.clientHeight}px`
 		);
 	}
 
@@ -50,7 +50,7 @@ import Logo from './Logo.astro';
 
 				const target = document.querySelector(href);
 				if (target) {
-					const headerHeight = document.querySelector('header.header')?.clientHeight || 0;
+					const headerHeight = document.getElementById('app-header')?.clientHeight || 0;
 					const targetPosition =
 						target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
 					window.scrollTo({
