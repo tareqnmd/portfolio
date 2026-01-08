@@ -4,6 +4,11 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
+	<script is:inline>
+		if (typeof window !== 'undefined') {
+			window.location.replace('/');
+		}
+	</script>
 	<Section id="not-found" label="Page not found" class="flex items-center content-section-full">
 		<div class="text-center max-w-2xl mx-auto flex flex-col gap-4">
 			<p class="text-sm font-mono text-primary">Error 404</p>
