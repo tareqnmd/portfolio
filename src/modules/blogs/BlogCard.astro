@@ -17,7 +17,7 @@ const { blog, delayClass = 'animate-delay-100' } = Astro.props;
 		href={blog.url}
 		target="_blank"
 		rel="noopener noreferrer"
-		class:list={['animate-on-scroll group block', delayClass]}
+		class:list={['animate-on-scroll group block h-full', delayClass]}
 	>
 		<Card as="article" class="flex flex-col gap-3 h-full">
 			<div class="flex items-center gap-3 text-sm text-muted">
