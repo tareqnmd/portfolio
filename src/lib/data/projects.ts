@@ -16,12 +16,12 @@ export const PROJECTS: readonly Project[] = [
 		live: 'https://share.tareqnmd.com',
 	},
 	{
-		title: 'Chess',
+		title: 'Chat',
 		description:
-			'Full-featured chess engine with move validation, game state management, and AI opponent. Implements standard chess rules including castling, en passant, and promotion.',
-		tags: ['Next.js', 'TypeScript', 'Game Logic', 'State Management'],
-		github: 'https://github.com/tareqnmd/chess',
-		live: 'https://chess.tareqnmd.com',
+			'Full-featured chat application with AI-powered responses, file sharing, and message history. Implements standard chat features including message encryption and secure file uploads.',
+		tags: ['Angular', 'TypeScript', 'Ai Models', 'IndexedDB'],
+		github: 'https://github.com/tareqnmd/chat',
+		live: 'https://chat.tareqnmd.com',
 	},
 	{
 		title: 'Organizer',
